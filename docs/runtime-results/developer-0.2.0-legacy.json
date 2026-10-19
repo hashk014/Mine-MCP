@@ -1,0 +1,82 @@
+{
+  "modVersion": "0.2.0",
+  "minecraftVersion": "1.14.4",
+  "phase": "legacy-solo",
+  "environment": "Windows graphical client, Java 8, isolated offline MCP-Test world",
+  "recordedAt": "2026-10-19T15:08:04.615058+00:00",
+  "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd",
+  "tests": [
+    {
+      "name": "legacy owner console authority",
+      "status": "passed"
+    },
+    {
+      "name": "75 tool schemas",
+      "status": "passed"
+    },
+    {
+      "name": "server dimensions and seeds",
+      "status": "passed"
+    },
+    {
+      "name": "legacy command source captures output",
+      "status": "passed"
+    },
+    {
+      "name": "time effect observed",
+      "status": "passed"
+    },
+    {
+      "name": "legacy setblock",
+      "status": "passed"
+    },
+    {
+      "name": "legacy block edit observed",
+      "status": "passed"
+    },
+    {
+      "name": "legacy authoritative server block read",
+      "status": "passed"
+    },
+    {
+      "name": "legacy authoritative entity NBT",
+      "status": "passed"
+    },
+    {
+      "name": "unloaded client chunk stays unloaded",
+      "status": "passed"
+    },
+    {
+      "name": "legacy console autocomplete",
+      "status": "passed"
+    },
+    {
+      "name": "legacy statistics request",
+      "status": "passed"
+    },
+    {
+      "name": "legacy checkpoint create",
+      "status": "passed"
+    },
+    {
+      "name": "legacy teleport",
+      "status": "passed"
+    },
+    {
+      "name": "legacy checkpoint restore",
+      "status": "passed"
+    },
+    {
+      "name": "legacy position restore observed",
+      "status": "passed"
+    },
+    {
+      "name": "legacy player debug NBT query",
+      "status": "passed"
+    },
+    {
+      "name": "legacy native save",
+      "status": "passed"
+    }
+  ]
+}

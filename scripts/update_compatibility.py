@@ -35,11 +35,22 @@ def main():
     lines += ['', '## Runtime notes', '',
               '- Runtime reports record the exact tested JAR SHA-256. A report for a preceding build is evidence for that build, not automatic proof of a later binary.',
               '- The 26.3 client reached Fabric/mod initialization, then hit native Windows exit `0xC0000005` during graphics/resource startup. A Fabric-only baseline failed the same way. This environment could not complete a 26.3 graphical test.',
-              '- Game data is client-cached. The server seed, unloaded chunks, remote inventories and permission escalation are unavailable.',
+              '- Remote observations use client-cached data or permission-checked vanilla debug queries. Solo owners can inspect their integrated server; remote console authority, unloaded chunks and permission escalation remain unavailable.',
               '- Optional fields can be null on versions without that API. Direct tools report unsupported mandatory operations as errors; combined snapshots contain per-section errors.',
-              '- Windows graphical clients were tested locally. Linux/macOS game runtime and multiplayer acceptance remain unverified. CI tests portable code on Windows/Linux, without a graphical Minecraft session.',
+              '- Windows graphical clients were tested locally. Developer 0.2.0 reports below separately cover vanilla dedicated-server permissions. Linux/macOS game runtime and arbitrary plugin/anti-cheat stacks remain unverified. CI tests portable code on Windows/Linux, without a graphical Minecraft session.',
               '- Not supported: Forge, NeoForge, Quilt, Bedrock, snapshots, or pre-1.14.4 versions.', '',
               'Regenerate this page after collecting reports with `python scripts/update_compatibility.py`.', '']
+    reports = sorted((ROOT / 'docs/runtime-results').glob('developer-0.2.0-*.json'))
+    if reports:
+        lines += ['## 0.2.0 developer regression reports', '',
+                  'These are separate from the historical 0.1.1 client reports above. Each records its exact JAR hash. Dedicated-server tests use a vanilla loopback server and offline test identities, without a server mod.', '',
+                  '| Phase | Checks | JAR SHA-256 prefix |', '| --- | --- | --- |']
+        for report_path in reports:
+            report = json.loads(report_path.read_text(encoding='utf-8'))
+            tests = report.get('tests', [])
+            passed = sum(t['status'] == 'passed' for t in tests)
+            lines.append(f"| {report.get('phase', report_path.stem)} | [{passed}/{len(tests)}](runtime-results/{report_path.name}) | `{report.get('jarSha256', '')[:16]}` |")
+        lines.append('')
     path.write_text(json.dumps(rows, indent=2) + '\n')
     (ROOT / 'docs/COMPATIBILITY.md').write_text('\n'.join(lines))
 

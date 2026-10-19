@@ -2,7 +2,7 @@
 
 **Minecraft MCP — connect an AI agent to your real Minecraft Java client.**
 
-One client-side Fabric JAR, version-specific runtime symbols, **45 MCP tools**, JSON resources, screenshots and normal player controls. No server plugin or Fabric API installation is required.
+One client-side Fabric JAR, version-specific runtime symbols, **75 MCP tools**, screenshots, normal player controls and an integrated-server developer toolbox for solo worlds. No server plugin or Fabric API installation is required.
 
 **Experimental alpha.** The compatibility catalog targets **44 stable releases from 1.14.4 through 26.3**. Symbol verification, client launch tests and gameplay tests are separate evidence levels. See [compatibility and runtime results](docs/COMPATIBILITY.md) before choosing a version. This is not a claim that every feature was played through on every release.
 
@@ -10,7 +10,19 @@ One client-side Fabric JAR, version-specific runtime symbols, **45 MCP tools**, 
 
 [CurseForge](https://www.curseforge.com/minecraft/mc-mods/mine-mcp)
 
-CurseForge submission on 2026-10-19: project **1754265**, alpha file **9255839**, awaiting moderator approval. The GitHub release is available now. See the [publication receipt](publication.json) for recorded status and hashes.
+CurseForge project **1754265**. See the [publication receipt](publication.json) for the exact release, moderation status and hashes.
+
+## Solo and multiplayer developer modes
+
+| Session | Authority |
+| --- | --- |
+| Solo world, including cheats disabled | The verified local owner can execute developer commands on the integrated server, inspect authoritative block/entity NBT, read seeds and save the world. |
+| Multiplayer without OP | Normal player controls, inventory, chat, client-synced data and commands the server permits. Privileged edits are refused by the server. |
+| Multiplayer with OP | The same normal player connection, with commands and vanilla debug NBT queries allowed by the server's permissions. No remote console authority is granted. |
+
+Start with `get_session`. The **[developer guide](docs/DEVELOPER.md)** covers teleportation, give, setblock/fill/clone, effects, time/weather, game modes, gamerules, datapack functions, command completion, diagnostics, statistics refresh, creative inventory and position checkpoints. `dev_command` runs as local console only for the solo owner; `send_command` always uses ordinary player permissions.
+
+F8 and `allowActions` apply to developer mutations too, including queued server work. Set `allowSoloDeveloper: false` to keep ordinary player permissions in solo. Position checkpoints are session-local bookmarks, not world or inventory backups.
 
 ## In-game demonstration
 
@@ -40,12 +52,12 @@ Real Minecraft 1.21.11 screenshots from a scripted MCP session. `get_container` 
 
 The AI can move, look, jump, sneak, sprint, attack, use/place items, select a hotbar slot, drop items, send chat/commands, open/close inventory, click container slots, press buttons, fill text fields and request respawn. Actions use the player's ordinary permissions and remain subject to server validation.
 
-This exposes **a broad client surface**, not literally every Minecraft API. It cannot obtain server-only data, unloaded chunks, other players' private inventories or permissions the player does not have. Loaded client data can include entities/blocks behind walls. Use it where the server's rules permit automation. Authentication/session credentials, arbitrary filesystem access, arbitrary Java execution and raw packet injection are deliberately outside this API.
+This exposes a broad game surface, not literally every Minecraft API. On remote servers, normal observations use client-synced data; full debug NBT requires server-granted permission. The AI cannot obtain the remote server's seed, unloaded chunks or private inventories without a server-authorized facility. Solo owners can inspect their own integrated server. Loaded client data can include entities/blocks behind walls. Respect server rules for automation. Authentication/session credentials, arbitrary filesystem access, arbitrary Java execution and arbitrary packet injection remain outside this API.
 
 ## Install
 
 1. Install **Fabric Loader 0.19.5 or later** for a catalogued Minecraft version. Use the Java version required by that Minecraft release.
-2. Put `mine-mcp-0.1.1.jar` from [Releases](https://github.com/hashk014/Mine-MCP/releases) into **that instance's** `mods` directory.
+2. Put `mine-mcp-0.2.0.jar` from [Releases](https://github.com/hashk014/Mine-MCP/releases) into **that instance's** `mods` directory. Remove the older Mine MCP JAR first.
 3. Launch the game. The mod creates `config/mine-mcp.json` and a private `config/mine-mcp-connection.json` in the instance directory.
 4. Install Node.js 18+ and connect your MCP client using the included [stdio bridge](bridge/mine-mcp.mjs), or configure direct authenticated HTTP. See [CONNECT.md](docs/CONNECT.md).
 5. Start with `get_status`, `get_capabilities` and `get_snapshot`. Join a world for world/player tools.
@@ -105,7 +117,7 @@ python scripts/build.py --test
 npm test
 ```
 
-Output: `build/libs/mine-mcp-0.1.1.jar`. Build dependencies are pinned and SHA-256 checked in [dependencies.lock.json](scripts/dependencies.lock.json). The JAR contains no shaded libraries or Minecraft game code. CI builds and runs the behavioral tests on Windows/Linux and JDK 17/21/25; CI is not a graphical game test.
+Output: `build/libs/mine-mcp-0.2.0.jar`. Build dependencies are pinned and SHA-256 checked in [dependencies.lock.json](scripts/dependencies.lock.json). The JAR contains no shaded libraries or Minecraft game code. CI builds and runs the behavioral tests on Windows/Linux and JDK 17/21/25; CI is not a graphical game test.
 
 The checked-in symbol catalogs make ordinary builds independent of Minecraft downloads. To regenerate all 44 catalogs:
 
@@ -123,6 +135,6 @@ Developer graphical tests are available through `scripts/launch_test_client.py`,
 
 Currently: Minecraft **Java**, **Fabric**, stable catalogued releases **1.14.4–26.3**. Forge, NeoForge, Quilt, Bedrock, pre-1.14.4 releases and snapshots are not supported or advertised. Additional loaders require their own lifecycle and naming adapters; changing the version range in metadata does not implement them.
 
-Useful next additions: full recipe display decoding, map pixel/marker data, richer UI traversal, lossless chat/sound hooks and wider gameplay regression coverage. Contributions should include per-version evidence and preserve the client-only permission boundary.
+Useful next additions: full recipe display decoding, map pixel/marker data, richer UI traversal, lossless chat/sound hooks and wider gameplay regression coverage. Contributions must include per-version evidence and preserve the boundary between the local owner's integrated server and permission-checked remote connections.
 
 Independent MIT project by **hashk014**. See [NOTICE](NOTICE) for third-party symbols and attribution. Not an official Minecraft product; not approved by or associated with Mojang or Microsoft.

@@ -1,0 +1,214 @@
+{
+  "modVersion": "0.2.0",
+  "minecraftVersion": "1.21.11",
+  "phase": "solo",
+  "recordedAt": "2026-10-19T15:09:10.215017+00:00",
+  "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd",
+  "environment": "Isolated offline solo, cheats disabled",
+  "tests": [
+    {
+      "name": "cheats-disabled owner has local console authority",
+      "status": "passed"
+    },
+    {
+      "name": "75 tool schemas discovered",
+      "status": "passed"
+    },
+    {
+      "name": "diagnostics include mod inventory and heap",
+      "status": "passed"
+    },
+    {
+      "name": "loaded chunk inspection",
+      "status": "passed"
+    },
+    {
+      "name": "unloaded chunk read does not load it",
+      "status": "passed"
+    },
+    {
+      "name": "local server dimensions and seed",
+      "status": "passed"
+    },
+    {
+      "name": "set block with console authority",
+      "status": "passed"
+    },
+    {
+      "name": "block edit observed by client",
+      "status": "passed"
+    },
+    {
+      "name": "authoritative local block state",
+      "status": "passed"
+    },
+    {
+      "name": "authoritative local container NBT",
+      "status": "passed"
+    },
+    {
+      "name": "bounded fill executes",
+      "status": "passed"
+    },
+    {
+      "name": "fill result observed",
+      "status": "passed"
+    },
+    {
+      "name": "clone executes",
+      "status": "passed"
+    },
+    {
+      "name": "clone result observed",
+      "status": "passed"
+    },
+    {
+      "name": "oversized edit is rejected",
+      "status": "passed"
+    },
+    {
+      "name": "give item without enabling cheats",
+      "status": "passed"
+    },
+    {
+      "name": "given items observed in inventory",
+      "status": "passed"
+    },
+    {
+      "name": "time command",
+      "status": "passed"
+    },
+    {
+      "name": "time change observed",
+      "status": "passed"
+    },
+    {
+      "name": "weather command",
+      "status": "passed"
+    },
+    {
+      "name": "weather state observed",
+      "status": "passed"
+    },
+    {
+      "name": "effect command",
+      "status": "passed"
+    },
+    {
+      "name": "effect observed",
+      "status": "passed"
+    },
+    {
+      "name": "summon command",
+      "status": "passed"
+    },
+    {
+      "name": "summoned entity observed",
+      "status": "passed"
+    },
+    {
+      "name": "server entity serialization",
+      "status": "passed"
+    },
+    {
+      "name": "position checkpoint saved",
+      "status": "passed"
+    },
+    {
+      "name": "position checkpoint listed",
+      "status": "passed"
+    },
+    {
+      "name": "teleport command",
+      "status": "passed"
+    },
+    {
+      "name": "teleport observed",
+      "status": "passed"
+    },
+    {
+      "name": "checkpoint restore executes",
+      "status": "passed"
+    },
+    {
+      "name": "checkpoint position observed",
+      "status": "passed"
+    },
+    {
+      "name": "creative command",
+      "status": "passed"
+    },
+    {
+      "name": "creative state observed",
+      "status": "passed"
+    },
+    {
+      "name": "creative inventory request",
+      "status": "passed"
+    },
+    {
+      "name": "creative inventory change observed",
+      "status": "passed"
+    },
+    {
+      "name": "normal statistics request",
+      "status": "passed"
+    },
+    {
+      "name": "statistics response observed",
+      "status": "passed"
+    },
+    {
+      "name": "normal command completions",
+      "status": "passed"
+    },
+    {
+      "name": "solo console completions include privileged commands",
+      "status": "passed"
+    },
+    {
+      "name": "aim at world coordinate",
+      "status": "passed"
+    },
+    {
+      "name": "camera change observed",
+      "status": "passed"
+    },
+    {
+      "name": "invalid console command reports failure",
+      "status": "passed"
+    },
+    {
+      "name": "datapack reload",
+      "status": "passed"
+    },
+    {
+      "name": "installed datapack function",
+      "status": "passed"
+    },
+    {
+      "name": "datapack function effect observed",
+      "status": "passed"
+    },
+    {
+      "name": "gamerule command",
+      "status": "passed"
+    },
+    {
+      "name": "native world and player save",
+      "status": "passed"
+    },
+    {
+      "name": "cheats remain disabled in saved world",
+      "status": "passed"
+    },
+    {
+      "name": "F8 pause blocks developer edits",
+      "status": "passed"
+    },
+    {
+      "name": "server observations still work while paused",
+      "status": "passed"
+    }
+  ]
+}

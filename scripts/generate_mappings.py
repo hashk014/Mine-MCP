@@ -10,6 +10,8 @@ import urllib.request
 import zipfile
 import struct
 import threading
+import os
+import tempfile
 from collections import defaultdict
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,8 +19,9 @@ CACHE = ROOT / '.cache'
 OUT = ROOT / 'src/main/resources/mappings'
 FETCH_LOCKS = defaultdict(threading.Lock)
 MANIFEST = 'https://piston-meta.mojang.com/mc/game/version_manifest_v2.json'
-# Limit extraction to the client surface used by the adapter, not the entire mappings.
+# Limit extraction to the client and integrated-server surfaces used by fixed tools.
 PREFIXES = (
+    'net.minecraft.server.', 'net.minecraft.commands.',
     'net.minecraft.client.', 'net.minecraft.world.entity.', 'net.minecraft.world.item.',
     'net.minecraft.world.level.block.', 'net.minecraft.world.level.biome.',
     'net.minecraft.world.level.dimension.', 'net.minecraft.world.level.material.',
@@ -26,12 +29,14 @@ PREFIXES = (
     'net.minecraft.world.scores.', 'net.minecraft.world.phys.',
     'net.minecraft.core.', 'net.minecraft.resources.', 'net.minecraft.network.chat.',
     'net.minecraft.nbt.', 'net.minecraft.tags.', 'net.minecraft.stats.',
+    'net.minecraft.network.protocol.game.',
     'net.minecraft.advancements.', 'net.minecraft.sounds.', 'net.minecraft.world.food.',
     'net.minecraft.world.Interaction', 'net.minecraft.world.level.Level',
     'net.minecraft.world.level.BlockGetter', 'net.minecraft.world.level.LevelReader',
     'net.minecraft.world.level.LightLayer', 'net.minecraft.world.level.GameType',
     'net.minecraft.world.level.storage.LevelData', 'net.minecraft.world.level.storage.WritableLevelData', 'net.minecraft.world.level.storage.LevelSummary',
     'net.minecraft.world.level.border.WorldBorder',
+    'net.minecraft.world.level.storage.', 'net.minecraft.world.level.chunk.',
 )
 # Deliberately exclude authentication/session internals, including reflective inspection.
 DENY = ('User', 'Session', 'MinecraftSessionService', 'UserApiService', 'Yggdrasil', 'Realms', 'ProfileKey', 'Telemetry')
@@ -65,6 +70,14 @@ CollisionGetter SignalGetter EntityGetter LevelSimulatedReader LevelWriter Displ
 ClientRecipeContainer RecipeDisplayEntry RecipeDisplay RecipeBookMenu ServerboundClientCommandPacket Action
 PlayerInfo ServerData ConnectionData GameProfile LevelChunk LightLayer
 WorldBorder ServerboundCustomPayloadPacket CustomPacketPayload
+IntegratedServer MinecraftServer ServerLevel ServerPlayer PlayerList Commands CommandSource CommandSourceStack
+Dimension
+ChunkStatus ChunkAccess ChunkPos
+ClientCommonPacketListenerImpl TranslatableContents
+DebugQueryHandler ClientSuggestionProvider BlockableEventLoop ReentrantBlockableEventLoop
+PermissionSet LevelBasedPermissionSet Permission PermissionLevel CommandResultCallback
+ValueOutput TagValueOutput ProblemReporter DiscardingProblemReporter TagParser
+DimensionDataStorage ServerLevelData WorldData PrimaryLevelData LevelSettings
 '''.split())
 
 
@@ -251,7 +264,14 @@ def generate(version):
         for named, row in rows.items():
             row['c'] = named
     target = OUT / (vid + '.json')
-    target.write_text(json.dumps(rows, separators=(',', ':'), sort_keys=True), encoding='utf-8')
+    # Preserve the previous complete catalog if Windows scanners/sync interrupt a write.
+    with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=OUT, suffix='.tmp', delete=False) as temp:
+        temp.write(json.dumps(rows, separators=(',', ':'), sort_keys=True))
+        temporary = temp.name
+    try:
+        os.replace(temporary, target)
+    finally:
+        if os.path.exists(temporary): os.unlink(temporary)
     mc = rows['net.minecraft.client.Minecraft']
     tick = [x for x in mc['m'] if x[0] == 'tick' and x[2] == '()V']
     assert tick, 'Missing tick hook: ' + vid
@@ -282,6 +302,11 @@ def main():
         for row in pool.map(generate, versions):
             print(row['version'], row['status'], flush=True)
             results.append(row)
+    if args.versions and (ROOT / 'docs/compatibility.json').exists():
+        previous = {r['version']: r for r in json.loads((ROOT / 'docs/compatibility.json').read_text())}
+        previous.update({r['version']: r for r in results})
+        order = {v['id']: i for i, v in enumerate(manifest['versions'])}
+        results = sorted(previous.values(), key=lambda r: order.get(r['version'], 999999))
     (ROOT / 'docs/compatibility.json').write_text(json.dumps(results, indent=2) + '\n', encoding='utf-8')
     from update_compatibility import main as update_runtime_evidence
     update_runtime_evidence()

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "mine_mcp",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "name": "Mine MCP",
   "description": "Minecraft MCP: give AI agents client-side perception and normal player controls through Model Context Protocol.",
   "authors": ["hashk014"],

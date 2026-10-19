@@ -19,12 +19,12 @@ for (const [name, transport] of [
   const client = new Client({ name: 'minemcp-validation', version: '1.0.0' });
   try {
     await client.connect(transport);
-    assert.equal((await client.listTools()).tools.length, 45);
+    assert.equal((await client.listTools()).tools.length, 75);
     assert.ok(!(await client.callTool({ name: 'get_status', arguments: {} })).isError);
-    assert.equal((await client.listResources()).resources.length, 4);
+    assert.equal((await client.listResources()).resources.length, 5);
     assert.equal((await client.readResource({ uri: 'minecraft://status' })).contents.length, 1);
     assert.equal((await client.getPrompt({ name: 'observe_then_act' })).messages.length, 1);
-    reports.push({ transport: name, status: 'passed', checks: ['initialize', '45 tools', 'tools/call', '4 resources', 'resources/read', 'prompts/get'] });
+    reports.push({ transport: name, status: 'passed', checks: ['initialize', '75 tools', 'tools/call', '5 resources', 'resources/read', 'prompts/get'] });
     console.log('PASS official MCP SDK:', name);
   } finally { await client.close(); }
 }

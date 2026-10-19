@@ -11,6 +11,7 @@ import java.util.Base64;
 public final class Config {
     public int port = 0;
     public boolean allowActions = true;
+    public boolean allowSoloDeveloper = true;
     public String token;
     public final Path directory;
     public Config(Path directory) { this.directory = directory; }
@@ -21,6 +22,7 @@ public final class Config {
             JsonObject data = Json.parse(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
             config.port = Json.integer(data, "port", 0, 0, 65535);
             config.allowActions = Json.bool(data, "allowActions", true);
+            config.allowSoloDeveloper = Json.bool(data, "allowSoloDeveloper", true);
             config.token = Json.string(data, "token", null);
         }
         if (config.token == null) {
@@ -28,7 +30,7 @@ public final class Config {
             config.token = Base64.getUrlEncoder().withoutPadding().encodeToString(bytes);
         }
         if (!config.token.matches("[A-Za-z0-9_-]{32,128}")) throw new IOException("Token must be 32-128 base64url characters");
-        privateWrite(path, Json.obj("port", config.port, "allowActions", config.allowActions, "token", config.token).toString());
+        privateWrite(path, Json.obj("port", config.port, "allowActions", config.allowActions, "allowSoloDeveloper", config.allowSoloDeveloper, "token", config.token).toString());
         return config;
     }
     static void privateWrite(Path path, String data) throws IOException {

@@ -45,7 +45,7 @@ The endpoint supports JSON responses to POST and returns HTTP 202 for accepted n
 
 This implementation supports MCP revisions `2025-11-25`, `2025-06-18`, `2025-03-26` and `2024-11-05` with the initialize handshake. It negotiates the requested supported revision, otherwise returns `2025-11-25`. It does **not** implement the different `2026-07-28` protocol era; clients must allow legacy negotiation. The stdio bridge preserves JSON-RPC messages and has the same protocol support.
 
-Resources: `minecraft://status`, `minecraft://snapshot`, `minecraft://inventory`, `minecraft://chat`. The `observe_then_act` prompt suggests an observation/action/verification loop.
+Resources: `minecraft://status`, `minecraft://snapshot`, `minecraft://inventory`, `minecraft://chat`, `minecraft://session`. Read `get_session` first to distinguish solo owner authority from normal multiplayer permissions. The `observe_then_act` prompt suggests an observation/action/verification loop.
 
 ## Control settings
 
@@ -55,12 +55,14 @@ Close the game before changing `config/mine-mcp.json`:
 {
   "port": 0,
   "allowActions": true,
+  "allowSoloDeveloper": true,
   "token": "KEEP_THE_GENERATED_PRIVATE_VALUE"
 }
 ```
 
 - `port: 0` selects an available port. A fixed port can be set for a direct HTTP client.
 - `allowActions: false` makes action tools unavailable at execution time, except releasing inputs and pausing. Observation tools still work.
+- `allowSoloDeveloper: true` lets the verified solo owner use the integrated-server developer console, including cheats-disabled worlds. Set it to false to keep ordinary player permissions and disable authoritative server inspection. Remote sessions always retain normal server-enforced permissions. See [the developer guide](DEVELOPER.md).
 - F8 toggles control pause from inside Minecraft. A remote MCP action can pause, but cannot resume a paused client.
 - A two-second maximum key lease bounds movement if an agent disconnects. Expiration/release is processed on game ticks.
 - A timed-out action may already have begun. Inspect the game state before retrying it; the mod cancels requests that expired while still queued.

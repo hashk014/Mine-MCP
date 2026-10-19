@@ -20,6 +20,12 @@ The shared JAR contains Java 8 bytecode and references no Minecraft classes dire
 
 `Symbols` resolves known fields/methods through actual superclasses and interfaces. Reflection is an internal compatibility mechanism, not an MCP Java execution API. The MCP surface uses fixed tool handlers and fixed inspection roots. `inspect_client` returns scalar values or class descriptions; it cannot traverse objects into authentication/networking internals.
 
+`DeveloperAdapter` adds a separate authority boundary. The integrated-server console route requires a live local server and a matching owner profile. Remote OP status never grants this route. Multiplayer developer commands are ordinary player command packets; NBT debug queries use the vanilla permission-checked handler. Creative inventory requests reproduce vanilla client prediction followed by a normal server-validated request. Reflection caches are concurrent because the client and integrated-server threads both resolve symbols.
+
+Integrated-server observations and mutations run on its own executor via `DeferredWork`. The render thread only schedules the operation; HTTP workers wait for its future. Queued work checks its deadline, cancellation, session epoch and, for mutations, pause/config state before touching the server. Completed commands return bounded feedback; `success: null` does not imply success. Console output and callbacks implement Object identity methods as well as the mapped Minecraft interfaces, which is necessary for datapack function execution. No generic Java invocation or packet-construction tool is exposed.
+
+Client chunk reads use the chunk cache's non-creating lookup. `ClientLevel.hasChunkAt` can report true for missing chunks on some releases; it must not be used as evidence that a real client chunk exists.
+
 HTTP workers do not touch Minecraft state. They submit bounded jobs to `GameThread`. Every job has a deadline and an atomic queued/running/cancelled state. Jobs cancelled before execution cannot later mutate the game. A timeout after execution begins has an explicitly uncertain outcome. Each tick drains at most four jobs, with an eight-millisecond scheduling budget; an individual job can exceed that budget, so expensive observations have input/result limits.
 
 `take_screenshot` handles synchronous legacy framebuffer reads and newer asynchronous callbacks. It copies a downscaled image, closes the native image and returns an MCP `image/png` block. The HTTP worker waits outside the game thread. Screenshots do not write arbitrary local files.
@@ -34,4 +40,4 @@ Tests must keep these distinctions visible:
 2. Java behavioral tests exercise schema errors, JSON-RPC semantics, transport authentication, origin rejection, cancellation, pagination and token persistence.
 3. Node tests exercise bridge URL restrictions, forwarding, notifications and concurrent stdio IDs.
 4. Client smoke tests verify a real graphical client and actual MCP calls.
-5. Gameplay tests require an isolated world, state changes, screenshots and post-action observation. They do not establish multiplayer/server acceptance on other servers.
+5. Gameplay tests require an isolated world, state changes, screenshots and post-action observation. Developer regressions separately test cheats-disabled solo and a vanilla dedicated loopback server without OP, with OP and after revocation. These do not establish acceptance on every production server or plugin stack.

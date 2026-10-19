@@ -8,9 +8,9 @@
       "status": "passed",
       "checks": [
         "initialize",
-        "45 tools",
+        "75 tools",
         "tools/call",
-        "4 resources",
+        "5 resources",
         "resources/read",
         "prompts/get"
       ]
@@ -20,9 +20,9 @@
       "status": "passed",
       "checks": [
         "initialize",
-        "45 tools",
+        "75 tools",
         "tools/call",
-        "4 resources",
+        "5 resources",
         "resources/read",
         "prompts/get"
       ]

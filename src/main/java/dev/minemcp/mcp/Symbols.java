@@ -7,6 +7,7 @@ import java.lang.reflect.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.regex.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 /** Small version-exact symbol tables; no Minecraft classes appear in mod bytecode. */
 public final class Symbols {
@@ -14,9 +15,9 @@ public final class Symbols {
     private final MappingResolver resolver;
     private final Map<String, JsonObject> byRuntime = new HashMap<>();
     private final Map<String, String> namedByRuntime = new HashMap<>();
-    private final Map<String, Class<?>> classes = new HashMap<>();
-    private final Map<String, List<Method>> methodCache = new HashMap<>();
-    private final Map<String, Field> fieldCache = new HashMap<>();
+    private final Map<String, Class<?>> classes = new ConcurrentHashMap<>();
+    private final Map<String, List<Method>> methodCache = new ConcurrentHashMap<>();
+    private final Map<String, Field> fieldCache = new ConcurrentHashMap<>();
 
     public Symbols(String version, MappingResolver resolver) throws IOException {
         this.resolver = resolver;
@@ -200,6 +201,9 @@ public final class Symbols {
     public Object optional(Object target, String name, Object... args) {
         if (target == null) return null;
         try { return call(target, name, args); } catch (UnsupportedOperationException ignored) { return null; }
+    }
+    public boolean isNamedMethod(Method method, String name) {
+        return names(method.getDeclaringClass(), name, "m").contains(method.getName());
     }
     public String namedClass(Object target) {
         if (target == null) return "null";

@@ -1,0 +1,66 @@
+{
+  "modVersion": "0.2.0",
+  "minecraftVersion": "1.21.11",
+  "phase": "nonop",
+  "recordedAt": "2026-10-19T15:09:10.217524+00:00",
+  "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd",
+  "environment": "Vanilla dedicated test server, loopback only, no server mods; offline test identities",
+  "tests": [
+    {
+      "name": "remote mode never gains console authority",
+      "status": "passed"
+    },
+    {
+      "name": "remote server-only reads denied, including for OP",
+      "status": "passed"
+    },
+    {
+      "name": "client loaded chunk observation",
+      "status": "passed"
+    },
+    {
+      "name": "server advertises no privileged setblock",
+      "status": "passed"
+    },
+    {
+      "name": "privileged command uses ordinary player route",
+      "status": "passed"
+    },
+    {
+      "name": "server rejects forbidden edit",
+      "status": "passed"
+    },
+    {
+      "name": "server-only block reads denied",
+      "status": "passed"
+    },
+    {
+      "name": "creative inventory request denied in survival",
+      "status": "passed"
+    },
+    {
+      "name": "server denies vanilla debug NBT query",
+      "status": "passed"
+    },
+    {
+      "name": "normal chat send",
+      "status": "passed"
+    },
+    {
+      "name": "normal chat observed",
+      "status": "passed"
+    },
+    {
+      "name": "normal walking input",
+      "status": "passed"
+    },
+    {
+      "name": "server accepted normal movement",
+      "status": "passed"
+    },
+    {
+      "name": "normal statistics request",
+      "status": "passed"
+    }
+  ]
+}

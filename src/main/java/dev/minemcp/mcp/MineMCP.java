@@ -11,6 +11,7 @@ public final class MineMCP implements ClientModInitializer {
     private final GameThread game = new GameThread();
     private final Events events = new Events(512);
     private ClientAdapter adapter;
+    private DeveloperAdapter developer;
     private Config config;
     private LocalServer server;
     private String version;
@@ -23,6 +24,7 @@ public final class MineMCP implements ClientModInitializer {
             config = Config.load(loader.getConfigDir());
             Symbols symbols = new Symbols(version, loader.getMappingResolver());
             adapter = new ClientAdapter(symbols, events);
+            developer = new DeveloperAdapter(adapter, config, events);
             server = new LocalServer(config, new Protocol(this::execute));
             server.start(); instance = this;
             connectionFile = config.directory.resolve("mine-mcp-connection.json");
@@ -65,12 +67,22 @@ public final class MineMCP implements ClientModInitializer {
             CompletableFuture<JsonObject> image = game.call(() -> adapter.screenshot(Json.integer(a, "maxWidth", 640, 160, 1280)), 5000);
             return image.get(10, TimeUnit.SECONDS);
         }
+        if (tool.startsWith("dev_") || tool.equals("get_session") || tool.equals("get_debug_info") || tool.equals("get_chunk_info")
+                || tool.equals("look_at") || tool.equals("request_statistics") || tool.equals("complete_command")
+                || tool.equals("creative_set_slot") || tool.equals("query_block_nbt") || tool.equals("query_entity_nbt")) {
+            CompletableFuture<JsonObject> pending = game.call(() -> developer.execute(tool, a), 5000);
+            try { return pending.get(10, TimeUnit.SECONDS); }
+            catch (TimeoutException e) {
+                pending.cancel(false);
+                throw new TimeoutException("No result within 10 seconds. The server may have denied or ignored the request. A running action may have completed; inspect state before retrying.");
+            }
+        }
         return game.call(() -> {
             switch (tool) {
-                case "get_status": { JsonObject data = adapter.status(); data.addProperty("minecraftVersion", version); data.addProperty("modVersion", Protocol.VERSION); data.addProperty("allowActions", config.allowActions); data.addProperty("tickCount", ticks); return data; }
+                case "get_status": { JsonObject data = adapter.status(); data.add("session", developer.session()); data.addProperty("minecraftVersion", version); data.addProperty("modVersion", Protocol.VERSION); data.addProperty("allowActions", config.allowActions); data.addProperty("tickCount", ticks); return data; }
                 case "get_capabilities": return Json.obj("minecraftVersion", version, "loader", "Fabric", "tools", new Tools().list(),
-                        "coverage", "Client cache and normal player inputs. Availability depends on the game version. See docs/compatibility.json.",
-                        "limitations", Json.arr("No server-only inventory, seed, unloaded chunks or elevated permissions", "No authentication tokens, arbitrary Java/file access or arbitrary packets", "Sampled change events; not lossless network events", "F8 pauses actions; use short input leases"));
+                        "session", developer.session(), "coverage", "Solo owners can use integrated-server developer tools. Remote sessions use ordinary player controls, command permissions and vanilla debug queries. Version-specific availability: docs/compatibility.json.",
+                        "limitations", Json.arr("Remote server-only data requires server permission; no remote permission escalation", "No authentication tokens, arbitrary Java/file access or arbitrary packets", "Sampled change events; not lossless network events", "F8 pauses actions; use short input leases"));
                 case "get_snapshot": return snapshot();
                 case "get_player": return adapter.playerInfo();
                 case "get_world": return adapter.worldInfo();

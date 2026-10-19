@@ -57,9 +57,21 @@ This alpha targets Fabric on 44 stable Minecraft Java releases. One shared JAR i
 
 - Runtime reports record the exact tested JAR SHA-256. A report for a preceding build is evidence for that build, not automatic proof of a later binary.
 - The 26.3 client reached Fabric/mod initialization, then hit native Windows exit `0xC0000005` during graphics/resource startup. A Fabric-only baseline failed the same way. This environment could not complete a 26.3 graphical test.
-- Game data is client-cached. The server seed, unloaded chunks, remote inventories and permission escalation are unavailable.
+- Remote observations use client-cached data or permission-checked vanilla debug queries. Solo owners can inspect their integrated server; remote console authority, unloaded chunks and permission escalation remain unavailable.
 - Optional fields can be null on versions without that API. Direct tools report unsupported mandatory operations as errors; combined snapshots contain per-section errors.
-- Windows graphical clients were tested locally. Linux/macOS game runtime and multiplayer acceptance remain unverified. CI tests portable code on Windows/Linux, without a graphical Minecraft session.
+- Windows graphical clients were tested locally. Developer 0.2.0 reports below separately cover vanilla dedicated-server permissions. Linux/macOS game runtime and arbitrary plugin/anti-cheat stacks remain unverified. CI tests portable code on Windows/Linux, without a graphical Minecraft session.
 - Not supported: Forge, NeoForge, Quilt, Bedrock, snapshots, or pre-1.14.4 versions.
 
 Regenerate this page after collecting reports with `python scripts/update_compatibility.py`.
+
+## 0.2.0 developer regression reports
+
+These are separate from the historical 0.1.1 client reports above. Each records its exact JAR hash. Dedicated-server tests use a vanilla loopback server and offline test identities, without a server mod.
+
+| Phase | Checks | JAR SHA-256 prefix |
+| --- | --- | --- |
+| legacy-solo | [18/18](runtime-results/developer-0.2.0-legacy.json) | `b28dfbd14d804ca5` |
+| nonop | [14/14](runtime-results/developer-0.2.0-nonop.json) | `b28dfbd14d804ca5` |
+| op | [14/14](runtime-results/developer-0.2.0-op.json) | `b28dfbd14d804ca5` |
+| revoked | [9/9](runtime-results/developer-0.2.0-revoked.json) | `b28dfbd14d804ca5` |
+| solo | [51/51](runtime-results/developer-0.2.0-solo.json) | `b28dfbd14d804ca5` |

@@ -17,7 +17,8 @@ public final class ClientAdapter {
     private final Map<String, Long> held = new HashMap<>();
     private final Map<String, String> previous = new HashMap<>();
     private int ticks;
-    private boolean paused;
+    private volatile boolean paused;
+    private volatile long sessionEpoch;
     private Object lastLevel;
     private static final Map<String, String> KEYS = new LinkedHashMap<>();
     static {
@@ -166,11 +167,17 @@ public final class ClientAdapter {
                 Json.integer(args, "y", 0, -2048, 2048), Json.integer(args, "z", 0, -30000000, 30000000));
     }
     public JsonObject block(JsonObject args) { return block(blockPos(args), Json.bool(args, "includeData", true)); }
+    Object loadedClientChunk(int x, int z) {
+        Object full;
+        try { full = s.field(s.type("net.minecraft.world.level.chunk.status.ChunkStatus"), "FULL"); }
+        catch (UnsupportedOperationException old) { full = s.field(s.type("net.minecraft.world.level.chunk.ChunkStatus"), "FULL"); }
+        return s.call(s.call(world(), "getChunkSource"), "getChunk", x, z, full, false);
+    }
     private JsonObject block(Object pos, boolean data) {
         Object w = world();
-        Object loaded = s.optional(w, "hasChunkAt", pos);
-        if (!(loaded instanceof Boolean)) throw new UnsupportedOperationException("Cannot establish whether chunk is loaded; refusing a block read");
-        if (!((Boolean) loaded)) return Json.obj("position", position(pos), "loaded", false);
+        JsonObject point = position(pos);
+        if (loadedClientChunk(point.get("x").getAsInt() >> 4, point.get("z").getAsInt() >> 4) == null)
+            return Json.obj("position", point, "loaded", false);
         Object state = s.call(w, "getBlockState", pos);
         Object raw = s.call(state, "getBlock");
         JsonObject out = Json.obj("position", position(pos), "loaded", true, "id", registryId("BLOCK", raw),
@@ -450,7 +457,7 @@ public final class ClientAdapter {
         Iterator<Map.Entry<String, Long>> iter = held.entrySet().iterator();
         while (iter.hasNext()) { Map.Entry<String, Long> key = iter.next(); if (now >= key.getValue()) { setKey(key.getKey(), false); iter.remove(); } }
         Object level = s.optionalField(mc, "level");
-        if (lastLevel != level) { release(); events.add("world_changed", level != null); previous.clear(); lastLevel = level; }
+        if (lastLevel != level) { sessionEpoch++; release(); events.add("world_changed", level != null); previous.clear(); lastLevel = level; }
         if (screen() != null && !held.isEmpty()) release();
         if (++ticks % 10 != 0) return;
         observe("screen", () -> screenInfo());
@@ -478,6 +485,7 @@ public final class ClientAdapter {
     }
     public void togglePause() { paused = !paused; release(); events.add("control_paused", paused); }
     public boolean paused() { return paused; }
+    public long sessionEpoch() { return sessionEpoch; }
     public JsonObject action(String name, JsonObject a) {
         if (name.equals("release_controls")) { release(); return Json.obj("released", true); }
         if (name.equals("pause_control")) { if (!paused) togglePause(); return Json.obj("paused", true, "resume", "Press F8 in Minecraft"); }

@@ -1,0 +1,66 @@
+{
+  "modVersion": "0.2.0",
+  "minecraftVersion": "1.21.11",
+  "phase": "op",
+  "recordedAt": "2026-10-19T15:10:19.421323+00:00",
+  "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd",
+  "environment": "Vanilla dedicated test server, loopback only, no server mods; offline test identities",
+  "tests": [
+    {
+      "name": "remote mode never gains console authority",
+      "status": "passed"
+    },
+    {
+      "name": "remote server-only reads denied, including for OP",
+      "status": "passed"
+    },
+    {
+      "name": "client loaded chunk observation",
+      "status": "passed"
+    },
+    {
+      "name": "server advertises OP commands",
+      "status": "passed"
+    },
+    {
+      "name": "OP command still uses ordinary connection",
+      "status": "passed"
+    },
+    {
+      "name": "server accepts authorized OP edit",
+      "status": "passed"
+    },
+    {
+      "name": "authorized vanilla block NBT query",
+      "status": "passed"
+    },
+    {
+      "name": "authorized vanilla entity NBT query",
+      "status": "passed"
+    },
+    {
+      "name": "OP command completions",
+      "status": "passed"
+    },
+    {
+      "name": "authorized creative mode command",
+      "status": "passed"
+    },
+    {
+      "name": "server creative state observed",
+      "status": "passed"
+    },
+    {
+      "name": "normal creative slot request",
+      "status": "passed"
+    },
+    {
+      "name": "server accepts creative inventory request",
+      "status": "passed"
+    },
+    {
+      "name": "creative inventory confirmed by authoritative server NBT",
+      "status": "passed"
+    }
+  ]
+}

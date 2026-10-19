@@ -26,7 +26,7 @@ public final class Tools {
     }
     public Tools() {
         add("get_status", "Connection, Minecraft version, control permissions, active screen, held inputs and server information.", false, "");
-        add("get_capabilities", "Discover tools and exact version support. Missing client APIs return explicit errors; no server-only access.", false, "");
+        add("get_capabilities", "Discover version support and session authority. Remote servers expose client data; local owners also have integrated-server developer tools.", false, "");
         add("get_snapshot", "Combined player, world, inventory, crosshair and screen snapshot. Per-section failures are reported.", false, "");
         add("get_player", "Player position, rotation, health, food, armor, XP, abilities, effects and velocity.", false, "");
         add("get_world", "Client world time, dimension, biome, weather, difficulty, border and build limits.", false, "");
@@ -87,6 +87,36 @@ public final class Tools {
         add("select_list_entry", "Select an entry in a current screen's list widget, such as a saved-world or server list. Does not press its Play/Join button.", true, "screenClass,index,entry",
                 "screenClass", str("Exact class from get_screen"), "index", integer(0, 127, "List widget index"), "entry", integer(0, 63, "Entry index from get_screen"));
         add("respawn", "Request normal player respawn after death.", true, "");
+        add("get_session", "Discover menu/solo-owner/multiplayer mode, local developer authority and permission boundaries. Never grants remote operator rights.", false, "");
+        add("get_debug_info", "Developer diagnostics: FPS, JVM memory, installed mod IDs/versions, client options and session authority. No auth/session tokens.", false, "");
+        add("get_chunk_info", "Read already-loaded client chunk status and block-entity count; never force-load chunks.", false, "", "chunkX", integer(-1875000,1875000,"Chunk X"), "chunkZ", integer(-1875000,1875000,"Chunk Z"));
+        add("look_at", "Aim the normal player camera at an absolute world position.", true, "x,y,z", "x", number(-30000000,30000000,"Target X"), "y", number(-2048,2048,"Target Y"), "z", number(-30000000,30000000,"Target Z"));
+        add("request_statistics", "Send the normal player statistics request. Poll get_statistics to observe the server response.", true, "");
+        add("complete_command", "Tab-complete this player's server-advertised command tree. May send normal completion requests. Results limited to 100.", false, "command", "command", str("Prefix without leading slash; cursor excludes slash"), "cursor", integer(0,256,"Default end of prefix"));
+        add("dev_complete_command", "Solo owner: complete the full integrated-server console command tree, including cheats-disabled worlds. Multiplayer: only the normal player's advertised commands.", false, "command", "command", str("Command prefix"), "cursor", integer(0,256,"Default end of prefix"));
+        add("query_block_nbt", "Vanilla F3+I-style block-entity NBT query. Server requires debug/operator permissions and may refuse; no permission bypass.", false, "x,y,z", "x", integer(-30000000,30000000,"X"), "y", integer(-2048,2048,"Y"), "z", integer(-30000000,30000000,"Z"));
+        add("query_entity_nbt", "Vanilla F3+I-style entity NBT query. Server checks debug/operator permissions; may refuse. No server-side mod required.", false, "entityId", "entityId", integer(0,Integer.MAX_VALUE,"Loaded entity ID"));
+        add("creative_set_slot", "Normal creative inventory item request; requires existing creative mode and server validation. Does not grant items in survival.", true, "item,slot", "item", str("Item registry ID"), "slot", integer(9,44,"Player menu slot: inventory 9-35, hotbar 36-44"), "count", integer(1,64,"Limited to the item's stack size"));
+        add("dev_command", "Solo owner: execute on the integrated server as console, even with cheats off, capturing feedback. Multiplayer: submit as normal player, subject to server permissions. F8 and allowActions apply.", true, "command", "command", str("One command; solo max 8192 chars, remote max 256"));
+        add("dev_teleport", "Teleport self using a command. Solo owner has local console authority; multiplayer needs the server's teleport permission.", true, "x,y,z", "x", number(-30000000,30000000,"X"), "y", number(-2048,2048,"Y"), "z", number(-30000000,30000000,"Z"), "yaw", number(-360000,360000,"Optional yaw; supply pitch too"), "pitch", number(-90,90,"Optional pitch; supply yaw too"));
+        add("dev_give_item", "Give self an item through local console in solo or normal server command permissions in multiplayer.", true, "item", "item", str("Registry ID"), "count", integer(1,6400,"Default 1"));
+        add("dev_set_block", "Set a block through solo console or a permission-checked multiplayer command.", true, "x,y,z,block", "x", integer(-30000000,30000000,"X"), "y", integer(-2048,2048,"Y"), "z", integer(-30000000,30000000,"Z"), "block", str("Block ID with optional [states]"));
+        add("dev_fill", "Fill at most 32768 blocks through solo console or normal multiplayer command permissions. This edits the world.", true, "x1,y1,z1,x2,y2,z2,block", "x1", integer(-30000000,30000000,"Min/first X"), "y1", integer(-2048,2048,"First Y"), "z1", integer(-30000000,30000000,"First Z"), "x2", integer(-30000000,30000000,"Second X"), "y2", integer(-2048,2048,"Second Y"), "z2", integer(-30000000,30000000,"Second Z"), "block", str("Block ID and optional [states]"), "mode", choice("replace","keep","outline","hollow","destroy"));
+        add("dev_clone", "Clone at most 32768 blocks to a destination through solo console or multiplayer permissions.", true, "x1,y1,z1,x2,y2,z2,x,y,z", "x1", integer(-30000000,30000000,"First X"), "y1", integer(-2048,2048,"First Y"), "z1", integer(-30000000,30000000,"First Z"), "x2", integer(-30000000,30000000,"Second X"), "y2", integer(-2048,2048,"Second Y"), "z2", integer(-30000000,30000000,"Second Z"), "x", integer(-30000000,30000000,"Destination X"), "y", integer(-2048,2048,"Destination Y"), "z", integer(-30000000,30000000,"Destination Z"));
+        add("dev_set_time", "Set time via solo console or the normal multiplayer permission check.", true, "time", "time", integer(0,Integer.MAX_VALUE,"Day time in ticks"));
+        add("dev_set_weather", "Set weather via solo console or normal multiplayer permissions.", true, "weather", "weather", choice("clear","rain","thunder"), "seconds", integer(1,1000000,"Default 600; game version may clamp duration"));
+        add("dev_set_gamemode", "Change own game mode through solo console or a permission-checked server command.", true, "mode", "mode", choice("survival","creative","adventure","spectator"));
+        add("dev_summon", "Summon an entity via solo console or normal multiplayer command permissions.", true, "entity,x,y,z", "entity", str("Entity type ID"), "x", number(-30000000,30000000,"X"), "y", number(-2048,2048,"Y"), "z", number(-30000000,30000000,"Z"));
+        add("dev_effect", "Apply an effect to self via solo console or normal multiplayer permissions.", true, "effect", "effect", str("Effect ID"), "seconds", integer(1,1000000,"Default 30"), "amplifier", integer(0,255,"Default 0"));
+        add("dev_set_gamerule", "Set a version-specific gamerule boolean/integer using solo console or normal multiplayer permissions.", true, "rule,value", "rule", str("Exact gamerule name/ID for this Minecraft version"), "value", str("true, false, or an integer"));
+        add("dev_run_function", "Run an installed datapack function via solo console or normal multiplayer permissions.", true, "function", "function", str("Namespaced function ID"));
+        add("dev_save_world", "Request save-all flush via solo console or a multiplayer command subject to server permissions. Can take time; inspect state before retrying after a timeout.", true, "");
+        add("dev_get_server_info", "Solo owner only: authoritative dimensions, seeds, player count, server tick and tick timing. Never available on remote servers.", false, "");
+        add("dev_get_block", "Solo owner only: authoritative block state and block-entity NBT from an already-loaded server chunk.", false, "x,y,z", "x", integer(-30000000,30000000,"X"), "y", integer(-2048,2048,"Y"), "z", integer(-30000000,30000000,"Z"));
+        add("dev_get_entities", "Solo owner only: bounded local-server entity NBT and positions, including server-only data. Never queries a remote server this way.", false, "", "radius", number(0,128,"Default 32"), "limit", integer(1,128,"Default 32"));
+        add("dev_checkpoint", "Solo owner only: remember position, dimension and camera in memory. Does not back up blocks or inventory; max 32 named checkpoints.", false, "name", "name", str("1-48 letters, digits, dot, underscore or dash"));
+        add("dev_list_checkpoints", "List position checkpoints for the current local server session. Cleared when the server changes.", false, "");
+        add("dev_restore_checkpoint", "Solo owner only: teleport to a named position/camera checkpoint. Does not restore blocks or inventory.", true, "name", "name", str("Checkpoint name"));
     }
     public JsonArray list() { JsonArray out = new JsonArray(); for (Tool t : tools.values()) out.add(t.json()); return out; }
     public Tool require(String name, JsonObject args) {
@@ -94,6 +124,7 @@ public final class Tools {
         validate(t.schema, args, "arguments");
         if (name.equals("scan_blocks") && (args.has("x") || args.has("y") || args.has("z")) && !(args.has("x") && args.has("y") && args.has("z")))
             throw new IllegalArgumentException("Specify x, y and z together");
+        if (name.equals("dev_teleport") && args.has("yaw") != args.has("pitch")) throw new IllegalArgumentException("Supply yaw and pitch together");
         return t;
     }
     private static void validate(JsonObject schema, JsonElement value, String path) {

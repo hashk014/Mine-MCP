@@ -19,7 +19,8 @@ def main():
     directory = Path(args.game_dir)
     connection = json.loads((directory / 'config/mine-mcp-connection.json').read_text())
     version = connection['minecraftVersion']
-    jar = directory / 'mods/mine-mcp-0.1.1.jar'
+    mod_version = connection['modVersion']
+    jar = directory / f'mods/mine-mcp-{mod_version}.jar'
     report = dict(minecraftVersion=version, recordedAt=datetime.now(timezone.utc).isoformat(),
                   jarSha256=hashlib.sha256(jar.read_bytes()).hexdigest(),
                   environment='Windows graphical client, isolated offline singleplayer instance, Fabric 0.19.5', tests=[])
@@ -38,7 +39,7 @@ def main():
             return None
 
     status = check('real client status', 'get_status', predicate=lambda d: d['minecraftVersion'] == version and d['tickCount'] > 0)
-    check('tool discovery', 'get_capabilities', predicate=lambda d: len(d['tools']) == 45)
+    check('tool discovery', 'get_capabilities', predicate=lambda d: len(d['tools']) == 75)
     check('screen inspection', 'get_screen')
     check('item registry pagination', 'get_registry', {'limit': 3}, lambda d: len(d['values']) == 3 and d['total'] > 3)
     check('client options', 'get_options')
