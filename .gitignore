@@ -8,3 +8,7 @@ __pycache__/
 .vscode/
 config/mine-mcp.json
 *-connection.json
+.publish/
+video/node_modules/
+video/out/
+docs/media/*.mp4

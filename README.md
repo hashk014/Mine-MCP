@@ -8,6 +8,10 @@ One client-side Fabric JAR, version-specific runtime symbols, **45 MCP tools**, 
 
 [Download the alpha](https://github.com/hashk014/Mine-MCP/releases) · [Guide en français](docs/FR.md) · [Connection guide](docs/CONNECT.md) · [Architecture](docs/ARCHITECTURE.md)
 
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/mine-mcp) · [Watch the 50-second demo](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4) · [Editable video project](video/README.md)
+
+[![Mine MCP demo: observe, act, verify](docs/media/demo-poster.jpg)](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4)
+
 ## What the AI can see
 
 | Surface | Tools and data |

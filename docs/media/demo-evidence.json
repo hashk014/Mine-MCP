@@ -1,0 +1,2783 @@
+{
+  "minecraftVersion": "1.21.11",
+  "scope": "isolated offline singleplayer creative scene",
+  "demo": "Scripted real MCP calls, not an autonomous model session",
+  "frames": 122,
+  "duration": 18.03100000001723,
+  "events": [
+    {
+      "tool": "get_status",
+      "arguments": {},
+      "result": {
+        "inWorld": true,
+        "paused": false,
+        "heldKeys": [],
+        "screen": null,
+        "serverName": null,
+        "serverAddress": null,
+        "fps": 30,
+        "minecraftVersion": "1.21.11",
+        "modVersion": "0.1.1",
+        "allowActions": true,
+        "tickCount": 2891
+      }
+    },
+    {
+      "tool": "close_screen",
+      "arguments": {},
+      "result": {
+        "submitted": true,
+        "action": "close_screen",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "time set day"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "weather clear"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill -10 -60 -8 10 -48 14 minecraft:air"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill -8 -61 -2 8 -61 12 minecraft:deepslate_tiles"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill -7 -60 11 7 -56 11 minecraft:smooth_quartz"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill -7 -55 11 7 -55 11 minecraft:ochre_froglight"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill -7 -60 3 -7 -56 3 minecraft:cut_copper"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "fill 7 -60 3 7 -56 3 minecraft:cut_copper"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "setblock 0 -60 5 minecraft:chest[facing=north]{Items:[{Slot:0b,id:\"minecraft:diamond\",count:12},{Slot:1b,id:\"minecraft:oak_log\",count:32}]} replace"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "send_command",
+      "arguments": {
+        "command": "tp @s 0.5 -60 0.5 0 19"
+      },
+      "result": {
+        "submitted": true,
+        "action": "send_command",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "select_hotbar",
+      "arguments": {
+        "slot": 8
+      },
+      "result": {
+        "selectedSlot": 8
+      }
+    },
+    {
+      "tool": "look",
+      "arguments": {
+        "yaw": 0,
+        "pitch": 19
+      },
+      "result": {
+        "yaw": 0.0,
+        "pitch": 19.0
+      }
+    },
+    {
+      "tool": "get_player",
+      "arguments": {},
+      "result": {
+        "id": 45,
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "type": "minecraft:player",
+        "name": "MCPTest",
+        "position": {
+          "x": 0.5,
+          "y": -60.0,
+          "z": 0.5
+        },
+        "yaw": 0.0,
+        "pitch": 19.0,
+        "alive": true,
+        "invisible": false,
+        "onGround": true,
+        "health": 20.0,
+        "maxHealth": 20.0,
+        "customName": "",
+        "velocity": {
+          "x": 0.0,
+          "y": -0.0784000015258789,
+          "z": 0.0
+        },
+        "effects": [],
+        "food": {
+          "level": 20,
+          "saturation": 5.0
+        },
+        "experience": {
+          "level": 0,
+          "progress": 0.0,
+          "total": 0
+        },
+        "abilities": {
+          "flying": false,
+          "mayFly": true,
+          "creative": true,
+          "invulnerable": true,
+          "flyingSpeed": 0.05,
+          "walkingSpeed": 0.1
+        },
+        "selectedSlot": 8,
+        "gameMode": "CREATIVE",
+        "dimension": "ResourceKey[minecraft:dimension / minecraft:overworld]",
+        "air": 300,
+        "armor": 0,
+        "sprinting": false,
+        "sneaking": false,
+        "usingItem": false
+      }
+    },
+    {
+      "tool": "get_target",
+      "arguments": {},
+      "result": {
+        "type": "BLOCK",
+        "location": {
+          "x": 0.5,
+          "y": -59.95058153665485,
+          "z": 5.0625
+        },
+        "block": {
+          "position": {
+            "x": 0,
+            "y": -60,
+            "z": 5
+          },
+          "loaded": true,
+          "id": "minecraft:chest",
+          "state": "Block{minecraft:chest}[facing=north,type=single,waterlogged=false]",
+          "air": false,
+          "destroySpeed": 2.5,
+          "light": 15,
+          "blockEntity": {
+            "class": "net.minecraft.class_2595",
+            "nbt": "{Items:[],components:{},id:\"minecraft:chest\",x:0,y:-60,z:5}",
+            "fields": {
+              "LOGGER": {
+                "class": "org.apache.logging.slf4j.Log4jLogger"
+              },
+              "TYPE_CODEC": {
+                "class": "com.mojang.serialization.Codec$2"
+              },
+              "blockState": {
+                "class": "net.minecraft.world.level.block.state.BlockState"
+              },
+              "components": {
+                "class": "net.minecraft.class_9323$1"
+              },
+              "level": {
+                "class": "net.minecraft.client.multiplayer.ClientLevel"
+              },
+              "lockKey": {
+                "class": "net.minecraft.class_1273"
+              },
+              "name": null,
+              "remove": false,
+              "type": {
+                "class": "net.minecraft.class_2591"
+              },
+              "worldPosition": {
+                "class": "net.minecraft.core.BlockPos"
+              }
+            },
+            "scope": "Only data already synced to this client"
+          }
+        },
+        "face": "north"
+      }
+    },
+    {
+      "tool": "get_inventory",
+      "arguments": {},
+      "result": {
+        "selectedSlot": 8,
+        "slots": [
+          {
+            "id": "minecraft:dirt",
+            "count": 1,
+            "empty": false,
+            "name": "Dirt",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 64,
+            "enchanted": false,
+            "nbt": null,
+            "components": "{minecraft:item_model=>minecraft:dirt, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.dirt', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}",
+            "slot": 0
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 1
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 2
+          },
+          {
+            "id": "minecraft:grass_block",
+            "count": 1,
+            "empty": false,
+            "name": "Grass Block",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 64,
+            "enchanted": false,
+            "nbt": null,
+            "components": "{minecraft:item_model=>minecraft:grass_block, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.grass_block', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}",
+            "slot": 3
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 4
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 5
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 6
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 7
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 8
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 9
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 10
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 11
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 12
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 13
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 14
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 15
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 16
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 17
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 18
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 19
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 20
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 21
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 22
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 23
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 24
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 25
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 26
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 27
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 28
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 29
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 30
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 31
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 32
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 33
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 34
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 35
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 36
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 37
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 38
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 39
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 40
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 41
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 42
+          }
+        ],
+        "mainHand": {
+          "id": "minecraft:air",
+          "count": 0,
+          "empty": true,
+          "name": "Air",
+          "damage": 0,
+          "maxDamage": 0,
+          "maxStackSize": 1,
+          "enchanted": false,
+          "nbt": null,
+          "components": "net.minecraft.class_9323$1@4c92e8c5"
+        },
+        "offHand": {
+          "id": "minecraft:air",
+          "count": 0,
+          "empty": true,
+          "name": "Air",
+          "damage": 0,
+          "maxDamage": 0,
+          "maxStackSize": 1,
+          "enchanted": false,
+          "nbt": null,
+          "components": "net.minecraft.class_9323$1@4c92e8c5"
+        }
+      }
+    },
+    {
+      "tool": "use_item",
+      "arguments": {},
+      "result": {
+        "submitted": true,
+        "action": "use_item",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "get_container",
+      "arguments": {},
+      "result": {
+        "containerId": 1,
+        "class": "net.minecraft.class_1707",
+        "slots": [
+          {
+            "slot": 0,
+            "x": 8,
+            "y": 18,
+            "item": {
+              "id": "minecraft:diamond",
+              "count": 12,
+              "empty": false,
+              "name": "Diamond",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 64,
+              "enchanted": false,
+              "nbt": null,
+              "components": "{minecraft:item_model=>minecraft:diamond, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:max_stack_size=>64, minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:repair_cost=>0, minecraft:item_name=>translation{key='item.minecraft.diamond', args=[]}, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:provides_trim_material=>class_10711[material=class_9791[contents=Right[ResourceKey[minecraft:trim_material / minecraft:diamond]]]], minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 1,
+            "x": 26,
+            "y": 18,
+            "item": {
+              "id": "minecraft:oak_log",
+              "count": 32,
+              "empty": false,
+              "name": "Oak Log",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 64,
+              "enchanted": false,
+              "nbt": null,
+              "components": "{minecraft:item_model=>minecraft:oak_log, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.oak_log', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 2,
+            "x": 44,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 3,
+            "x": 62,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 4,
+            "x": 80,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 5,
+            "x": 98,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 6,
+            "x": 116,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 7,
+            "x": 134,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 8,
+            "x": 152,
+            "y": 18,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 9,
+            "x": 8,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 10,
+            "x": 26,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 11,
+            "x": 44,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 12,
+            "x": 62,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 13,
+            "x": 80,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 14,
+            "x": 98,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 15,
+            "x": 116,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 16,
+            "x": 134,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 17,
+            "x": 152,
+            "y": 36,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 18,
+            "x": 8,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 19,
+            "x": 26,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 20,
+            "x": 44,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 21,
+            "x": 62,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 22,
+            "x": 80,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 23,
+            "x": 98,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 24,
+            "x": 116,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 25,
+            "x": 134,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 26,
+            "x": 152,
+            "y": 54,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 27,
+            "x": 8,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 28,
+            "x": 26,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 29,
+            "x": 44,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 30,
+            "x": 62,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 31,
+            "x": 80,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 32,
+            "x": 98,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 33,
+            "x": 116,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 34,
+            "x": 134,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 35,
+            "x": 152,
+            "y": 85,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 36,
+            "x": 8,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 37,
+            "x": 26,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 38,
+            "x": 44,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 39,
+            "x": 62,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 40,
+            "x": 80,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 41,
+            "x": 98,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 42,
+            "x": 116,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 43,
+            "x": 134,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 44,
+            "x": 152,
+            "y": 103,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 45,
+            "x": 8,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 46,
+            "x": 26,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 47,
+            "x": 44,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 48,
+            "x": 62,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 49,
+            "x": 80,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 50,
+            "x": 98,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 51,
+            "x": 116,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 52,
+            "x": 134,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 53,
+            "x": 152,
+            "y": 121,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 54,
+            "x": 8,
+            "y": 143,
+            "item": {
+              "id": "minecraft:dirt",
+              "count": 1,
+              "empty": false,
+              "name": "Dirt",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 64,
+              "enchanted": false,
+              "nbt": null,
+              "components": "{minecraft:item_model=>minecraft:dirt, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.dirt', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 55,
+            "x": 26,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 56,
+            "x": 44,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 57,
+            "x": 62,
+            "y": 143,
+            "item": {
+              "id": "minecraft:grass_block",
+              "count": 1,
+              "empty": false,
+              "name": "Grass Block",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 64,
+              "enchanted": false,
+              "nbt": null,
+              "components": "{minecraft:item_model=>minecraft:grass_block, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.grass_block', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 58,
+            "x": 80,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 59,
+            "x": 98,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 60,
+            "x": 116,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 61,
+            "x": 134,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          },
+          {
+            "slot": 62,
+            "x": 152,
+            "y": 143,
+            "item": {
+              "id": "minecraft:air",
+              "count": 0,
+              "empty": true,
+              "name": "Air",
+              "damage": 0,
+              "maxDamage": 0,
+              "maxStackSize": 1,
+              "enchanted": false,
+              "nbt": null,
+              "components": "net.minecraft.class_9323$1@4c92e8c5"
+            },
+            "mayPickup": true
+          }
+        ],
+        "carried": {
+          "id": "minecraft:air",
+          "count": 0,
+          "empty": true,
+          "name": "Air",
+          "damage": 0,
+          "maxDamage": 0,
+          "maxStackSize": 1,
+          "enchanted": false,
+          "nbt": null,
+          "components": "net.minecraft.class_9323$1@4c92e8c5"
+        },
+        "screen": {
+          "class": "net.minecraft.client.gui.screens.inventory.ContainerScreen",
+          "title": "Chest",
+          "width": 427,
+          "height": 240,
+          "widgets": [],
+          "windowWidth": 854,
+          "windowHeight": 480
+        }
+      }
+    },
+    {
+      "tool": "click_slot",
+      "arguments": {
+        "containerId": 1,
+        "slot": 0,
+        "clickType": "QUICK_MOVE"
+      },
+      "result": {
+        "submitted": true,
+        "action": "click_slot",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "get_inventory",
+      "arguments": {},
+      "result": {
+        "selectedSlot": 8,
+        "slots": [
+          {
+            "id": "minecraft:dirt",
+            "count": 1,
+            "empty": false,
+            "name": "Dirt",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 64,
+            "enchanted": false,
+            "nbt": null,
+            "components": "{minecraft:item_model=>minecraft:dirt, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.dirt', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}",
+            "slot": 0
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 1
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 2
+          },
+          {
+            "id": "minecraft:grass_block",
+            "count": 1,
+            "empty": false,
+            "name": "Grass Block",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 64,
+            "enchanted": false,
+            "nbt": null,
+            "components": "{minecraft:item_model=>minecraft:grass_block, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:repair_cost=>0, minecraft:max_stack_size=>64, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:item_name=>translation{key='block.minecraft.grass_block', args=[]}, minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}",
+            "slot": 3
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 4
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 5
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 6
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 7
+          },
+          {
+            "id": "minecraft:diamond",
+            "count": 12,
+            "empty": false,
+            "name": "Diamond",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 64,
+            "enchanted": false,
+            "nbt": null,
+            "components": "{minecraft:item_model=>minecraft:diamond, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:max_stack_size=>64, minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:repair_cost=>0, minecraft:item_name=>translation{key='item.minecraft.diamond', args=[]}, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:provides_trim_material=>class_10711[material=class_9791[contents=Right[ResourceKey[minecraft:trim_material / minecraft:diamond]]]], minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}",
+            "slot": 8
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 9
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 10
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 11
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 12
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 13
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 14
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 15
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 16
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 17
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 18
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 19
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 20
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 21
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 22
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 23
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 24
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 25
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 26
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 27
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 28
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 29
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 30
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 31
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 32
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 33
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 34
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 35
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 36
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 37
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 38
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 39
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 40
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 41
+          },
+          {
+            "id": "minecraft:air",
+            "count": 0,
+            "empty": true,
+            "name": "Air",
+            "damage": 0,
+            "maxDamage": 0,
+            "maxStackSize": 1,
+            "enchanted": false,
+            "nbt": null,
+            "components": "net.minecraft.class_9323$1@4c92e8c5",
+            "slot": 42
+          }
+        ],
+        "mainHand": {
+          "id": "minecraft:diamond",
+          "count": 12,
+          "empty": false,
+          "name": "Diamond",
+          "damage": 0,
+          "maxDamage": 0,
+          "maxStackSize": 64,
+          "enchanted": false,
+          "nbt": null,
+          "components": "{minecraft:item_model=>minecraft:diamond, minecraft:tooltip_display=>class_10712[hideTooltip=false, hiddenComponents={}], minecraft:swing_animation=>class_12126[type=WHACK, duration=6], minecraft:max_stack_size=>64, minecraft:break_sound=>Reference{ResourceKey[minecraft:sound_event / minecraft:entity.item.break]=class_3414[location=minecraft:entity.item.break, fixedRange=Optional.empty]}, minecraft:repair_cost=>0, minecraft:item_name=>translation{key='item.minecraft.diamond', args=[]}, minecraft:attribute_modifiers=>class_9285[modifiers=[]], minecraft:provides_trim_material=>class_10711[material=class_9791[contents=Right[ResourceKey[minecraft:trim_material / minecraft:diamond]]]], minecraft:use_effects=>class_12127[canSprint=false, interactVibrations=true, speedMultiplier=0.2], minecraft:lore=>class_9290[lines=[], styledLines=[]], minecraft:rarity=>COMMON, minecraft:enchantments=>ItemEnchantments{enchantments={}}}"
+        },
+        "offHand": {
+          "id": "minecraft:air",
+          "count": 0,
+          "empty": true,
+          "name": "Air",
+          "damage": 0,
+          "maxDamage": 0,
+          "maxStackSize": 1,
+          "enchanted": false,
+          "nbt": null,
+          "components": "net.minecraft.class_9323$1@4c92e8c5"
+        }
+      }
+    },
+    {
+      "tool": "close_screen",
+      "arguments": {},
+      "result": {
+        "submitted": true,
+        "action": "close_screen",
+        "note": "Local input submitted; server acceptance is not implied. Observe state to confirm."
+      }
+    },
+    {
+      "tool": "hold_controls",
+      "arguments": {
+        "keys": [
+          "forward"
+        ],
+        "durationMs": 450
+      },
+      "result": {
+        "held": [
+          "forward"
+        ],
+        "leaseMs": 450
+      }
+    },
+    {
+      "tool": "get_player",
+      "arguments": {},
+      "result": {
+        "id": 45,
+        "uuid": "00000000-0000-0000-0000-000000000001",
+        "type": "minecraft:player",
+        "name": "MCPTest",
+        "position": {
+          "x": 0.5,
+          "y": -60.0,
+          "z": 2.4389924123230577
+        },
+        "yaw": 0.0,
+        "pitch": 19.0,
+        "alive": true,
+        "invisible": false,
+        "onGround": true,
+        "health": 20.0,
+        "maxHealth": 20.0,
+        "customName": "",
+        "velocity": {
+          "x": 0.0,
+          "y": -0.0784000015258789,
+          "z": 0.0
+        },
+        "effects": [],
+        "food": {
+          "level": 20,
+          "saturation": 5.0
+        },
+        "experience": {
+          "level": 0,
+          "progress": 0.0,
+          "total": 0
+        },
+        "abilities": {
+          "flying": false,
+          "mayFly": true,
+          "creative": true,
+          "invulnerable": true,
+          "flyingSpeed": 0.05,
+          "walkingSpeed": 0.1
+        },
+        "selectedSlot": 8,
+        "gameMode": "CREATIVE",
+        "dimension": "ResourceKey[minecraft:dimension / minecraft:overworld]",
+        "air": 300,
+        "armor": 0,
+        "sprinting": false,
+        "sneaking": false,
+        "usingItem": false
+      }
+    },
+    {
+      "tool": "get_status",
+      "arguments": {},
+      "result": {
+        "inWorld": true,
+        "paused": false,
+        "heldKeys": [],
+        "screen": null,
+        "serverName": null,
+        "serverAddress": null,
+        "fps": 27,
+        "minecraftVersion": "1.21.11",
+        "modVersion": "0.1.1",
+        "allowActions": true,
+        "tickCount": 3220
+      }
+    },
+    {
+      "tool": "release_controls",
+      "arguments": {},
+      "result": {
+        "released": true
+      }
+    },
+    {
+      "tool": "pause_control",
+      "arguments": {},
+      "result": {
+        "paused": true,
+        "resume": "Press F8 in Minecraft"
+      }
+    },
+    {
+      "tool": "get_status",
+      "arguments": {},
+      "result": {
+        "inWorld": true,
+        "paused": true,
+        "heldKeys": [],
+        "screen": null,
+        "serverName": null,
+        "serverAddress": null,
+        "fps": 27,
+        "minecraftVersion": "1.21.11",
+        "modVersion": "0.1.1",
+        "allowActions": true,
+        "tickCount": 3260
+      }
+    },
+    {
+      "tool": "release_controls",
+      "arguments": {},
+      "result": {
+        "released": true
+      }
+    }
+  ]
+}

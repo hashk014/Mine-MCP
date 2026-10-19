@@ -1,0 +1,78 @@
+{
+  "fps": 30,
+  "width": 1920,
+  "height": 1080,
+  "durationInFrames": 1501,
+  "cues": [
+    {
+      "id": "hook",
+      "line": "An AI can talk about Minecraft. But can it see your world?",
+      "caption": "An AI needs more than words.",
+      "fr": "Une IA a besoin de plus que des mots.",
+      "minSeconds": 5.6,
+      "from": 0,
+      "duration": 168,
+      "audioSeconds": 4.443764
+    },
+    {
+      "id": "connect",
+      "line": "Mine M C P connects your AI agent to the real Minecraft client.",
+      "caption": "Connect your AI to your Minecraft client.",
+      "fr": "Connecte ton IA à ton client Minecraft.",
+      "minSeconds": 6,
+      "from": 168,
+      "duration": 180,
+      "audioSeconds": 4.213605
+    },
+    {
+      "id": "observe",
+      "line": "First, observe. Read your player, nearby blocks, and the contents of an open chest.",
+      "caption": "Observe the client. Read the open chest.",
+      "fr": "Observe le client et le coffre ouvert.",
+      "minSeconds": 6.8,
+      "from": 348,
+      "duration": 208,
+      "audioSeconds": 6.118458
+    },
+    {
+      "id": "act",
+      "line": "Then act. Transfer an item through the same inventory controls a player uses.",
+      "caption": "Act through normal player controls.",
+      "fr": "Agis avec les contrôles du joueur.",
+      "minSeconds": 6.4,
+      "from": 556,
+      "duration": 192,
+      "audioSeconds": 5.358685
+    },
+    {
+      "id": "verify",
+      "line": "Verify the result. Twelve diamonds are now in the player's inventory.",
+      "caption": "Verify: 12 diamonds in the inventory.",
+      "fr": "Vérifie : 12 diamants dans l'inventaire.",
+      "minSeconds": 5.8,
+      "from": 748,
+      "duration": 174,
+      "audioSeconds": 4.693651
+    },
+    {
+      "id": "tools",
+      "line": "Forty five tools. Screenshots, movement, chat, inventory, and more. Press F eight to pause AI control.",
+      "caption": "45 tools. Press F8 to pause control.",
+      "fr": "45 outils. F8 suspend le contrôle.",
+      "minSeconds": 7.6,
+      "from": 922,
+      "duration": 299,
+      "audioSeconds": 9.15805
+    },
+    {
+      "id": "install",
+      "line": "Install Fabric. Add the mod. Connect an M C P compatible AI. Start with Mine M C P on CurseForge.",
+      "caption": "Fabric. Mine MCP. Your connected AI.",
+      "fr": "Fabric. Mine MCP. Ton IA connectée.",
+      "minSeconds": 8,
+      "from": 1221,
+      "duration": 280,
+      "audioSeconds": 8.503084
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+1
+00:00:00,267 --> 00:00:05,333
+Une IA a besoin de plus que des mots.
+
+2
+00:00:05,867 --> 00:00:11,333
+Connecte ton IA à ton client Minecraft.
+
+3
+00:00:11,867 --> 00:00:18,267
+Observe le client et le coffre ouvert.
+
+4
+00:00:18,800 --> 00:00:24,667
+Agis avec les contrôles du joueur.
+
+5
+00:00:25,200 --> 00:00:30,467
+Vérifie : 12 diamants dans l'inventaire.
+
+6
+00:00:31,000 --> 00:00:40,433
+45 outils. F8 suspend le contrôle.
+
+7
+00:00:40,967 --> 00:00:49,767
+Fabric. Mine MCP. Ton IA connectée.
