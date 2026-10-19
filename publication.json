@@ -1,13 +1,13 @@
 {
   "schema": 1,
   "name": "Mine MCP",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "releaseType": "alpha",
-  "updatedAt": "2026-10-19T14:20:00Z",
+  "updatedAt": "2026-10-19T15:14:01Z",
   "artifact": {
-    "file": "mine-mcp-0.1.1.jar",
-    "size": 7510943,
-    "sha256": "9da0ad58f0170e4e226836839207c8bd8af1206c32df41b5dceaaccf2268409b",
+    "file": "mine-mcp-0.2.0.jar",
+    "size": 8508174,
+    "sha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd",
     "remoteDownloadHashVerified": true
   },
   "loaders": [
@@ -64,29 +64,32 @@
       "26.3"
     ],
     "targetEvidence": "exact-version symbols verified, not all gameplay-tested",
-    "gameplayTested": {
-      "1.14.4": "49/49",
-      "1.21.11": "49/49"
-    },
-    "clientSmokeTested": {
-      "1.20.1": "6/6"
-    },
     "runtimeBlockers": {
       "26.3": "Native client crash reproduced without mod; no runtime pass claimed"
     },
-    "reports": "docs/runtime-results/"
+    "reports": "docs/runtime-results/",
+    "historical011Reports": {
+      "jarSha256": "9da0ad58f0170e4e226836839207c8bd8af1206c32df41b5dceaaccf2268409b",
+      "singleplayer": {
+        "1.14.4": "49/49",
+        "1.21.11": "49/49"
+      },
+      "clientSmoke": {
+        "1.20.1": "6/6"
+      }
+    }
   },
   "platforms": {
     "curseforge": {
       "projectId": 1754265,
-      "fileId": 9255839,
+      "fileId": 9256544,
       "slug": "mine-mcp",
       "owner": "hash014",
       "url": "https://www.curseforge.com/minecraft/mc-mods/mine-mcp",
       "previewUrl": "https://www.curseforge.com/minecraft/mc-mods/mine-mcp/preview",
       "authorsUrl": "https://authors.curseforge.com/#/projects/1754265/files",
-      "fileUrl": "https://www.curseforge.com/minecraft/mc-mods/mine-mcp/files/9255839",
-      "downloadUrl": "https://edge.forgecdn.net/files/9255/839/mine-mcp-0.1.1.jar",
+      "fileUrl": "https://www.curseforge.com/minecraft/mc-mods/mine-mcp/files/9256544",
+      "downloadUrl": "https://edge.forgecdn.net/files/9256/544/mine-mcp-0.2.0.jar",
       "projectStatus": "new-awaiting-moderator-approval",
       "fileStatus": "Processing",
       "releaseMode": "automatic-after-approval",
@@ -144,16 +147,93 @@
         "Chest contents before MCP transfer — Minecraft 1.21.11",
         "Real MCP container transfer — Minecraft 1.21.11"
       ],
-      "verification": "Authors UI confirms exactly one alpha file with 44 target versions, Fabric and Client. CDN SHA256 matches uploaded release."
+      "verification": "Authors UI confirms alpha file 9256544, 44 targets, Fabric and Client. Downloaded CDN SHA256 matches the exact tested release."
     }
   },
   "source": "https://github.com/hashk014/Mine-MCP",
-  "release": "https://github.com/hashk014/Mine-MCP/releases/tag/v0.1.1-alpha.1",
+  "release": "https://github.com/hashk014/Mine-MCP/releases/tag/v0.2.0-alpha.1",
   "screenshots": {
     "before": "docs/media/chest-before.png",
     "after": "docs/media/chest-after.png",
     "captureVersion": "1.21.11",
     "evidence": "docs/media/demo-evidence.json",
-    "disclosure": "Direct client screenshots from scripted real MCP calls; no added graphical overlays"
-  }
+    "disclosure": "Direct client screenshots from scripted real MCP calls; no added graphical overlays",
+    "captureModVersion": "0.1.1"
+  },
+  "toolCount": 75,
+  "validation": {
+    "javaAssertions": 56,
+    "bridgeTests": 3,
+    "mcpSdk": [
+      "stdio",
+      "Streamable HTTP"
+    ],
+    "runtimeChecks": 106,
+    "runtimeReports": [
+      {
+        "phase": "legacy-solo",
+        "minecraftVersion": "1.14.4",
+        "passed": 18,
+        "total": 18,
+        "report": "docs/runtime-results/developer-0.2.0-legacy.json",
+        "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd"
+      },
+      {
+        "phase": "nonop",
+        "minecraftVersion": "1.21.11",
+        "passed": 14,
+        "total": 14,
+        "report": "docs/runtime-results/developer-0.2.0-nonop.json",
+        "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd"
+      },
+      {
+        "phase": "op",
+        "minecraftVersion": "1.21.11",
+        "passed": 14,
+        "total": 14,
+        "report": "docs/runtime-results/developer-0.2.0-op.json",
+        "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd"
+      },
+      {
+        "phase": "revoked",
+        "minecraftVersion": "1.21.11",
+        "passed": 9,
+        "total": 9,
+        "report": "docs/runtime-results/developer-0.2.0-revoked.json",
+        "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd"
+      },
+      {
+        "phase": "solo",
+        "minecraftVersion": "1.21.11",
+        "passed": 51,
+        "total": 51,
+        "report": "docs/runtime-results/developer-0.2.0-solo.json",
+        "jarSha256": "b28dfbd14d804ca5ed947a2f3eef2dae16a49a653949632ad3ee883929015fbd"
+      }
+    ],
+    "scope": "Windows graphical clients; isolated offline solo and vanilla dedicated loopback server. Not every Minecraft version or server plugin/anti-cheat stack.",
+    "ci": {
+      "status": "success",
+      "jobs": 6,
+      "platforms": [
+        "Windows",
+        "Linux"
+      ],
+      "jdks": [
+        17,
+        21,
+        25
+      ],
+      "sourceCommit": "821760c86d16ca76313b48051f1429b48933eaab",
+      "url": "https://github.com/hashk014/Mine-MCP/actions/runs/39276067797"
+    }
+  },
+  "previousReleases": [
+    {
+      "version": "0.1.1",
+      "curseforgeProjectId": 1754265,
+      "curseforgeFileId": 9255839,
+      "jarSha256": "9da0ad58f0170e4e226836839207c8bd8af1206c32df41b5dceaaccf2268409b"
+    }
+  ]
 }
