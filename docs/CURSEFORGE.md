@@ -2,11 +2,21 @@
 
 **Give your connected AI eyes and hands inside Minecraft Java.** Mine MCP is a client-side Fabric mod that exposes 45 tools through the Model Context Protocol: inspect the game, capture screenshots and use your player's normal controls.
 
-[![Watch the Mine MCP demonstration](https://raw.githubusercontent.com/hashk014/Mine-MCP/main/docs/media/demo-poster.jpg)](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4)
+[Source code and releases](https://github.com/hashk014/Mine-MCP) · [Connection guide](https://github.com/hashk014/Mine-MCP/blob/main/docs/CONNECT.md) · [Guide en français](https://github.com/hashk014/Mine-MCP/blob/main/docs/FR.md)
 
-**[Watch the 50-second motion-design demonstration](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4)** · [Source code and releases](https://github.com/hashk014/Mine-MCP) · [Connection guide](https://github.com/hashk014/Mine-MCP/blob/main/docs/CONNECT.md) · [Guide en français](https://github.com/hashk014/Mine-MCP/blob/main/docs/FR.md)
+## In-game demonstration
 
-The demonstration combines explanatory motion graphics with real Minecraft 1.21.11 client captures. Its scripted commands are actual MCP calls: the chest contents are read, 12 diamonds are transferred and the result is checked in the inventory. The graphics are explanatory overlays, not an additional in-game interface or an unscripted autonomous model session.
+Real Minecraft 1.21.11 screenshots from a scripted MCP session, using the released JAR.
+
+**Before:** `get_container` reads 12 diamonds and 32 oak logs in the chest.
+
+![Chest before the MCP transfer](https://raw.githubusercontent.com/hashk014/Mine-MCP/main/docs/media/chest-before.png)
+
+**After:** `click_slot` with `QUICK_MOVE` transfers the 12 diamonds into the player inventory; `get_inventory` confirms the result.
+
+![Inventory after the MCP transfer](https://raw.githubusercontent.com/hashk014/Mine-MCP/main/docs/media/chest-after.png)
+
+[Actual MCP calls and responses](https://github.com/hashk014/Mine-MCP/blob/main/docs/media/demo-evidence.json). These are direct client screenshots from an isolated singleplayer test, without added graphical overlays. This scripted demonstration does not claim autonomous model gameplay.
 
 ## Observe → act → verify
 

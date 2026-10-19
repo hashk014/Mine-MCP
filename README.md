@@ -8,11 +8,21 @@ One client-side Fabric JAR, version-specific runtime symbols, **45 MCP tools**, 
 
 [Download the alpha](https://github.com/hashk014/Mine-MCP/releases) · [Guide en français](docs/FR.md) · [Connection guide](docs/CONNECT.md) · [Architecture](docs/ARCHITECTURE.md)
 
-[CurseForge](https://www.curseforge.com/minecraft/mc-mods/mine-mcp) · [Watch the 50-second demo](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4) · [Editable video project](video/README.md)
+[CurseForge](https://www.curseforge.com/minecraft/mc-mods/mine-mcp)
 
 CurseForge submission on 2026-10-19: project **1754265**, alpha file **9255839**, awaiting moderator approval. The GitHub release is available now. See the [publication receipt](publication.json) for recorded status and hashes.
 
-[![Mine MCP demo: observe, act, verify](docs/media/demo-poster.jpg)](https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4)
+## In-game demonstration
+
+Real Minecraft 1.21.11 screenshots from a scripted MCP session. `get_container` reads the chest, `click_slot` with `QUICK_MOVE` transfers 12 diamonds, and `get_inventory` confirms them in the player inventory. [Recorded MCP calls and responses](docs/media/demo-evidence.json).
+
+**Before: chest contents read through MCP.**
+
+![Chest before the MCP transfer](docs/media/chest-before.png)
+
+**After: 12 diamonds transferred into the player inventory through MCP.**
+
+![Inventory after the MCP transfer](docs/media/chest-after.png)
 
 ## What the AI can see
 

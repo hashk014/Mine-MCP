@@ -141,29 +141,19 @@
       "dependencies": [],
       "license": "MIT",
       "media": [
-        "Mine MCP demo — observe, act, verify",
+        "Chest contents before MCP transfer — Minecraft 1.21.11",
         "Real MCP container transfer — Minecraft 1.21.11"
       ],
       "verification": "Authors UI confirms exactly one alpha file with 44 target versions, Fabric and Client. CDN SHA256 matches uploaded release."
     }
   },
-  "video": {
-    "url": "https://github.com/hashk014/Mine-MCP/releases/download/v0.1.1-alpha.1/mine-mcp-demo.mp4",
-    "sha256": "095531b4ddb051431f99cc5d98ff5d8a20492d0efa98784e4740427c85e5e0b3",
-    "durationSeconds": 50.048,
-    "width": 1920,
-    "height": 1080,
-    "fps": 30,
-    "narration": "English",
-    "subtitles": [
-      "English",
-      "French"
-    ],
-    "source": "video/",
-    "evidence": "docs/media/demo-evidence.json",
-    "captureVersion": "1.21.11",
-    "disclosure": "Real captures and scripted MCP commands with explanatory motion graphics; not autonomous model gameplay"
-  },
   "source": "https://github.com/hashk014/Mine-MCP",
-  "release": "https://github.com/hashk014/Mine-MCP/releases/tag/v0.1.1-alpha.1"
+  "release": "https://github.com/hashk014/Mine-MCP/releases/tag/v0.1.1-alpha.1",
+  "screenshots": {
+    "before": "docs/media/chest-before.png",
+    "after": "docs/media/chest-after.png",
+    "captureVersion": "1.21.11",
+    "evidence": "docs/media/demo-evidence.json",
+    "disclosure": "Direct client screenshots from scripted real MCP calls; no added graphical overlays"
+  }
 }

@@ -9,6 +9,3 @@ __pycache__/
 config/mine-mcp.json
 *-connection.json
 .publish/
-video/node_modules/
-video/out/
-docs/media/*.mp4
