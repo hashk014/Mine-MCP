@@ -1,0 +1,10 @@
+.cache/
+build/
+run/
+__pycache__/
+*.pyc
+*.log
+.idea/
+.vscode/
+config/minesynapse-mcp.json
+*-connection.json

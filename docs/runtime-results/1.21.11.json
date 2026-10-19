@@ -1,0 +1,252 @@
+{
+  "minecraftVersion": "1.21.11",
+  "recordedAt": "2026-10-19T13:21:57.071403+00:00",
+  "jarSha256": "537ce252f81c9afa444d3c558dbcd16eca3bbd64e75c1940e338298830049e41",
+  "environment": "Windows graphical client, isolated offline singleplayer instance, Fabric 0.19.5",
+  "tests": [
+    {
+      "name": "real client status",
+      "tool": "get_status",
+      "status": "passed"
+    },
+    {
+      "name": "tool discovery",
+      "tool": "get_capabilities",
+      "status": "passed"
+    },
+    {
+      "name": "screen inspection",
+      "tool": "get_screen",
+      "status": "passed"
+    },
+    {
+      "name": "item registry pagination",
+      "tool": "get_registry",
+      "status": "passed"
+    },
+    {
+      "name": "client options",
+      "tool": "get_options",
+      "status": "passed"
+    },
+    {
+      "name": "framebuffer PNG",
+      "tool": "take_screenshot",
+      "status": "passed"
+    },
+    {
+      "name": "player identity and position",
+      "tool": "get_player",
+      "status": "passed"
+    },
+    {
+      "name": "world clock",
+      "tool": "get_world",
+      "status": "passed"
+    },
+    {
+      "name": "inventory",
+      "tool": "get_inventory",
+      "status": "passed"
+    },
+    {
+      "name": "equipment",
+      "tool": "get_equipment",
+      "status": "passed"
+    },
+    {
+      "name": "held item payload",
+      "tool": "get_held_item_data",
+      "status": "passed"
+    },
+    {
+      "name": "loaded entities",
+      "tool": "get_entities",
+      "status": "passed"
+    },
+    {
+      "name": "crosshair target",
+      "tool": "get_target",
+      "status": "passed"
+    },
+    {
+      "name": "loaded block scan",
+      "tool": "scan_blocks",
+      "status": "passed"
+    },
+    {
+      "name": "chat",
+      "tool": "get_chat",
+      "status": "passed"
+    },
+    {
+      "name": "player list",
+      "tool": "get_players",
+      "status": "passed"
+    },
+    {
+      "name": "scoreboard",
+      "tool": "get_scoreboard",
+      "status": "passed"
+    },
+    {
+      "name": "boss bars",
+      "tool": "get_boss_bars",
+      "status": "passed"
+    },
+    {
+      "name": "client recipes",
+      "tool": "get_recipes",
+      "status": "passed"
+    },
+    {
+      "name": "advancement cache",
+      "tool": "get_advancements",
+      "status": "passed"
+    },
+    {
+      "name": "statistics cache",
+      "tool": "get_statistics",
+      "status": "passed"
+    },
+    {
+      "name": "advertised command tree",
+      "tool": "get_commands",
+      "status": "passed"
+    },
+    {
+      "name": "bounded scalar inspection",
+      "tool": "inspect_client",
+      "status": "passed"
+    },
+    {
+      "name": "event polling",
+      "tool": "get_events",
+      "status": "passed"
+    },
+    {
+      "name": "close screen input",
+      "tool": "close_screen",
+      "status": "passed"
+    },
+    {
+      "name": "isolate look from physical mouse movement",
+      "tool": "open_inventory",
+      "status": "passed"
+    },
+    {
+      "name": "look input",
+      "tool": "look",
+      "status": "passed"
+    },
+    {
+      "name": "look observed",
+      "tool": "get_player",
+      "status": "passed"
+    },
+    {
+      "name": "close inventory after look",
+      "tool": "close_screen",
+      "status": "passed"
+    },
+    {
+      "name": "select hotbar input",
+      "tool": "select_hotbar",
+      "status": "passed"
+    },
+    {
+      "name": "selected hotbar observed",
+      "tool": "get_inventory",
+      "status": "passed"
+    },
+    {
+      "name": "bounded forward input",
+      "tool": "hold_controls",
+      "status": "passed"
+    },
+    {
+      "name": "key lease auto release",
+      "tool": "get_status",
+      "status": "passed"
+    },
+    {
+      "name": "movement observed",
+      "tool": "get_player",
+      "status": "passed"
+    },
+    {
+      "name": "open inventory input",
+      "tool": "open_inventory",
+      "status": "passed"
+    },
+    {
+      "name": "inventory screen observed",
+      "tool": "get_container",
+      "status": "passed"
+    },
+    {
+      "name": "normal empty-slot click",
+      "tool": "click_slot",
+      "status": "passed"
+    },
+    {
+      "name": "return to gameplay",
+      "tool": "close_screen",
+      "status": "passed"
+    },
+    {
+      "name": "normal attack input",
+      "tool": "attack",
+      "status": "passed"
+    },
+    {
+      "name": "normal use input",
+      "tool": "use_item",
+      "status": "passed"
+    },
+    {
+      "name": "stop item use",
+      "tool": "stop_using_item",
+      "status": "passed"
+    },
+    {
+      "name": "local singleplayer chat send",
+      "tool": "send_chat",
+      "status": "passed"
+    },
+    {
+      "name": "chat send observed",
+      "tool": "get_chat",
+      "status": "passed"
+    },
+    {
+      "name": "restore hotbar",
+      "tool": "select_hotbar",
+      "status": "passed"
+    },
+    {
+      "name": "restore view",
+      "tool": "look",
+      "status": "passed"
+    },
+    {
+      "name": "release all inputs",
+      "tool": "release_controls",
+      "status": "passed"
+    },
+    {
+      "name": "remote pause",
+      "tool": "pause_control",
+      "status": "passed"
+    },
+    {
+      "name": "paused actions rejected",
+      "status": "passed"
+    },
+    {
+      "name": "release permitted while paused",
+      "tool": "release_controls",
+      "status": "passed"
+    }
+  ]
+}

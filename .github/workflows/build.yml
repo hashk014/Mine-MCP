@@ -1,0 +1,33 @@
+name: Build and verify
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        java: ['17', '21', '25']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: ${{ matrix.java }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python scripts/verify_repository.py
+      - run: python scripts/build.py --test
+      - run: npm test
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minesynapse-mcp-${{ matrix.os }}-jdk${{ matrix.java }}
+          path: build/libs/*.jar

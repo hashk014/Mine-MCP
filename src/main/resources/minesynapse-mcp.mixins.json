@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "package": "dev.minesynapse.mcp.mixin",
+  "plugin": "dev.minesynapse.mcp.mixin.CompatibilityPlugin",
+  "compatibilityLevel": "JAVA_8",
+  "client": [],
+  "injectors": { "defaultRequire": 1 }
+}

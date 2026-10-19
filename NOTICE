@@ -1,0 +1,27 @@
+MineSynapse MCP is an independent project. It is not affiliated with Mojang,
+Microsoft, FabricMC, Anthropic, or the Model Context Protocol project.
+
+Minecraft is a trademark of Mojang Synergies AB. Minecraft game code, assets,
+game binaries, full mapping downloads and third-party libraries are not
+distributed in this repository or in the mod JAR.
+
+src/main/resources/mappings contains extracted compatibility symbol tables:
+- Older names originate from Mojang's official client mappings, joined with
+  FabricMC's intermediary mappings (CC0-1.0).
+- For Minecraft 26.x, public class/member signatures are extracted directly
+  from the unobfuscated client. No method bodies or game assets are included.
+- The original official mapping downloads carry Mojang's notice:
+  "(c) 2020 Microsoft Corporation. These mappings are provided 'as-is' and you
+  bear the risk of using them. You may copy and use the mappings for development
+  purposes, but you may not redistribute the mappings complete and unmodified.
+  Microsoft makes no warranties, express or implied, with respect to the
+  mappings provided here. Use and modification of this document or the source
+  code (in any form) of Minecraft: Java Edition is governed by the Minecraft
+  End User License Agreement available at https://account.mojang.com/documents/minecraft_eula."
+  The extracted, modified compatibility tables are not the complete mappings.
+  Source URLs and SHA-1 hashes are recorded in docs/compatibility.json.
+
+Build-only dependencies are downloaded and checksum-verified by scripts/build.py:
+Fabric Loader (Apache-2.0), Sponge Mixin (MIT), ASM (BSD-3-Clause), Gson (Apache-2.0).
+Their artifacts are neither shaded nor redistributed by this project.
+At runtime the mod uses the loader/game-provided libraries.

@@ -1,0 +1,31 @@
+{
+  "sdk": "@modelcontextprotocol/sdk",
+  "version": "1.28.0",
+  "minecraft": "1.21.11",
+  "reports": [
+    {
+      "transport": "stdio bridge",
+      "status": "passed",
+      "checks": [
+        "initialize",
+        "45 tools",
+        "tools/call",
+        "4 resources",
+        "resources/read",
+        "prompts/get"
+      ]
+    },
+    {
+      "transport": "direct Streamable HTTP",
+      "status": "passed",
+      "checks": [
+        "initialize",
+        "45 tools",
+        "tools/call",
+        "4 resources",
+        "resources/read",
+        "prompts/get"
+      ]
+    }
+  ]
+}

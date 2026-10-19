@@ -1,0 +1,38 @@
+{
+  "minecraftVersion": "1.20.1",
+  "recordedAt": "2026-10-19T13:23:23.670293+00:00",
+  "jarSha256": "537ce252f81c9afa444d3c558dbcd16eca3bbd64e75c1940e338298830049e41",
+  "environment": "Windows graphical client, isolated offline singleplayer instance, Fabric 0.19.5",
+  "tests": [
+    {
+      "name": "real client status",
+      "tool": "get_status",
+      "status": "passed"
+    },
+    {
+      "name": "tool discovery",
+      "tool": "get_capabilities",
+      "status": "passed"
+    },
+    {
+      "name": "screen inspection",
+      "tool": "get_screen",
+      "status": "passed"
+    },
+    {
+      "name": "item registry pagination",
+      "tool": "get_registry",
+      "status": "passed"
+    },
+    {
+      "name": "client options",
+      "tool": "get_options",
+      "status": "passed"
+    },
+    {
+      "name": "framebuffer PNG",
+      "tool": "take_screenshot",
+      "status": "passed"
+    }
+  ]
+}
