@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import com.google.gson.*;
 import java.io.*;
@@ -16,7 +16,7 @@ public final class Config {
     public Config(Path directory) { this.directory = directory; }
     public static Config load(Path directory) throws IOException {
         Files.createDirectories(directory);
-        Path path = directory.resolve("minesynapse-mcp.json"); Config config = new Config(directory);
+        Path path = directory.resolve("mine-mcp.json"); Config config = new Config(directory);
         if (Files.exists(path)) {
             JsonObject data = Json.parse(new String(Files.readAllBytes(path), StandardCharsets.UTF_8));
             config.port = Json.integer(data, "port", 0, 0, 65535);
@@ -32,7 +32,7 @@ public final class Config {
         return config;
     }
     static void privateWrite(Path path, String data) throws IOException {
-        Path temp = Files.createTempFile(path.getParent(), ".minesynapse-", ".tmp");
+        Path temp = Files.createTempFile(path.getParent(), ".minemcp-", ".tmp");
         try {
             try { Files.setPosixFilePermissions(temp, PosixFilePermissions.fromString("rw-------")); }
             catch (UnsupportedOperationException ignored) { /* Windows uses the config directory's inherited ACL. */ }

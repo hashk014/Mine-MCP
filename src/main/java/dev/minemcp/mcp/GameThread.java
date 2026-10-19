@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;

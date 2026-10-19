@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "id": "minesynapse_mcp",
-  "version": "0.1.0",
-  "name": "MineSynapse MCP",
+  "id": "mine_mcp",
+  "version": "0.1.1",
+  "name": "Mine MCP",
   "description": "Minecraft MCP: give AI agents client-side perception and normal player controls through Model Context Protocol.",
   "authors": ["hashk014"],
   "contact": {
-    "sources": "https://github.com/hashk014/MineSynapse-MCP",
-    "issues": "https://github.com/hashk014/MineSynapse-MCP/issues"
+    "sources": "https://github.com/hashk014/Mine-MCP",
+    "issues": "https://github.com/hashk014/Mine-MCP/issues"
   },
   "license": "MIT",
   "environment": "client",
-  "entrypoints": { "client": ["dev.minesynapse.mcp.MineSynapse"] },
-  "mixins": ["minesynapse-mcp.mixins.json"],
+  "entrypoints": { "client": ["dev.minemcp.mcp.MineMCP"] },
+  "mixins": ["mine-mcp.mixins.json"],
   "depends": {
     "fabricloader": ">=0.19.5",
     "java": ">=8",

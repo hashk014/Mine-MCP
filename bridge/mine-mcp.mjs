@@ -23,11 +23,11 @@ export function validateConnection(data) {
 }
 
 export function parseArgs(argv) {
-  const args = { gameDir: process.env.MINESYNAPSE_GAME_DIR || defaultGameDir() };
+  const args = { gameDir: process.env.MINE_MCP_GAME_DIR || defaultGameDir() };
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--game-dir' && argv[i + 1]) args.gameDir = path.resolve(argv[++i]);
     else if (argv[i] === '--connection-file' && argv[i + 1]) args.connectionFile = path.resolve(argv[++i]);
-    else throw new Error('Usage: node minesynapse-mcp.mjs [--game-dir <instance directory>] [--connection-file <file>]');
+    else throw new Error('Usage: node mine-mcp.mjs [--game-dir <instance directory>] [--connection-file <file>]');
   }
   return args;
 }
@@ -46,7 +46,7 @@ export async function forward(message, connectionFile, fetcher = fetch) {
 
 export async function main(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
-  const connectionFile = args.connectionFile || path.join(args.gameDir, 'config', 'minesynapse-mcp-connection.json');
+  const connectionFile = args.connectionFile || path.join(args.gameDir, 'config', 'mine-mcp-connection.json');
   const lines = createInterface({ input: process.stdin, crlfDelay: Infinity });
   const send = value => process.stdout.write(JSON.stringify(value) + '\n');
   let active = 0;
@@ -62,11 +62,11 @@ export async function main(argv = process.argv.slice(2)) {
     // Independent requests must not wait behind a screenshot or a game tick timeout.
     forward(message, connectionFile).then(result => { if (result) send(result); }).catch(error => {
       if ('id' in message) send({ jsonrpc: '2.0', id: message.id, error: { code: -32000, message: String(error.message).slice(0, 500) } });
-      else process.stderr.write('MineSynapse MCP: notification could not be delivered\n');
+      else process.stderr.write('Mine MCP: notification could not be delivered\n');
     }).finally(() => { active--; });
   }
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(path.resolve(process.argv[1])).href) {
-  main().catch(error => { process.stderr.write(`MineSynapse MCP: ${error.message}\n`); process.exitCode = 1; });
+  main().catch(error => { process.stderr.write(`Mine MCP: ${error.message}\n`); process.exitCode = 1; });
 }

@@ -7,7 +7,7 @@ import urllib.request
 
 
 def call(game_dir, name, arguments=None):
-    connection = json.loads((Path(game_dir) / 'config/minesynapse-mcp-connection.json').read_text())
+    connection = json.loads((Path(game_dir) / 'config/mine-mcp-connection.json').read_text())
     request = urllib.request.Request(connection['url'], data=json.dumps({
         'jsonrpc': '2.0', 'id': 1, 'method': 'tools/call',
         'params': {'name': name, 'arguments': arguments or {}}

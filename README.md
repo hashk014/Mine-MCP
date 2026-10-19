@@ -1,4 +1,4 @@
-# MineSynapse MCP
+# Mine MCP
 
 **Minecraft MCP — connect an AI agent to your real Minecraft Java client.**
 
@@ -6,7 +6,7 @@ One client-side Fabric JAR, version-specific runtime symbols, **45 MCP tools**, 
 
 **Experimental alpha.** The compatibility catalog targets **44 stable releases from 1.14.4 through 26.3**. Symbol verification, client launch tests and gameplay tests are separate evidence levels. See [compatibility and runtime results](docs/COMPATIBILITY.md) before choosing a version. This is not a claim that every feature was played through on every release.
 
-[Download the alpha](https://github.com/hashk014/MineSynapse-MCP/releases) · [Guide en français](docs/FR.md) · [Connection guide](docs/CONNECT.md) · [Architecture](docs/ARCHITECTURE.md)
+[Download the alpha](https://github.com/hashk014/Mine-MCP/releases) · [Guide en français](docs/FR.md) · [Connection guide](docs/CONNECT.md) · [Architecture](docs/ARCHITECTURE.md)
 
 ## What the AI can see
 
@@ -29,9 +29,9 @@ This exposes **a broad client surface**, not literally every Minecraft API. It c
 ## Install
 
 1. Install **Fabric Loader 0.19.5 or later** for a catalogued Minecraft version. Use the Java version required by that Minecraft release.
-2. Put `minesynapse-mcp-0.1.0.jar` from [Releases](https://github.com/hashk014/MineSynapse-MCP/releases) into **that instance's** `mods` directory.
-3. Launch the game. The mod creates `config/minesynapse-mcp.json` and a private `config/minesynapse-mcp-connection.json` in the instance directory.
-4. Install Node.js 18+ and connect your MCP client using the included [stdio bridge](bridge/minesynapse-mcp.mjs), or configure direct authenticated HTTP. See [CONNECT.md](docs/CONNECT.md).
+2. Put `mine-mcp-0.1.1.jar` from [Releases](https://github.com/hashk014/Mine-MCP/releases) into **that instance's** `mods` directory.
+3. Launch the game. The mod creates `config/mine-mcp.json` and a private `config/mine-mcp-connection.json` in the instance directory.
+4. Install Node.js 18+ and connect your MCP client using the included [stdio bridge](bridge/mine-mcp.mjs), or configure direct authenticated HTTP. See [CONNECT.md](docs/CONNECT.md).
 5. Start with `get_status`, `get_capabilities` and `get_snapshot`. Join a world for world/player tools.
 
 The mod binds only to `127.0.0.1`, chooses an available port by default, and requires its generated bearer token. The bridge discovers the current port/token each request. **F8 pauses/resumes AI control.** `release_controls` always remains available. Movement leases expire within two seconds; opening a screen or changing worlds releases AI-held keys.
@@ -41,10 +41,10 @@ Example stdio configuration (replace both paths):
 ```json
 {
   "mcpServers": {
-    "minesynapse-mcp": {
+    "mine-mcp": {
       "command": "node",
       "args": [
-        "/absolute/path/MineSynapse-MCP/bridge/minesynapse-mcp.mjs",
+        "/absolute/path/Mine-MCP/bridge/mine-mcp.mjs",
         "--game-dir",
         "/absolute/path/to/your/minecraft-instance"
       ]
@@ -89,7 +89,7 @@ python scripts/build.py --test
 npm test
 ```
 
-Output: `build/libs/minesynapse-mcp-0.1.0.jar`. Build dependencies are pinned and SHA-256 checked in [dependencies.lock.json](scripts/dependencies.lock.json). The JAR contains no shaded libraries or Minecraft game code. CI builds and runs the behavioral tests on Windows/Linux and JDK 17/21/25; CI is not a graphical game test.
+Output: `build/libs/mine-mcp-0.1.1.jar`. Build dependencies are pinned and SHA-256 checked in [dependencies.lock.json](scripts/dependencies.lock.json). The JAR contains no shaded libraries or Minecraft game code. CI builds and runs the behavioral tests on Windows/Linux and JDK 17/21/25; CI is not a graphical game test.
 
 The checked-in symbol catalogs make ordinary builds independent of Minecraft downloads. To regenerate all 44 catalogs:
 

@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import com.google.gson.*;
 import java.io.*;
@@ -25,7 +25,7 @@ public final class LocalServer implements AutoCloseable {
         socket = new ServerSocket(); socket.setReuseAddress(true);
         socket.bind(new InetSocketAddress(InetAddress.getByName("127.0.0.1"), config.port), 32);
         executor = new ThreadPoolExecutor(4, 8, 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(32), r -> {
-            Thread t = new Thread(r, "MineSynapse-MCP-HTTP"); t.setDaemon(true); return t;
+            Thread t = new Thread(r, "Mine-MCP-HTTP"); t.setDaemon(true); return t;
         });
     }
     public void start() {
@@ -35,8 +35,8 @@ public final class LocalServer implements AutoCloseable {
                 Socket client = socket.accept(); client.setSoTimeout(5000);
                 try { executor.execute(() -> handle(client)); }
                 catch (RejectedExecutionException e) { client.close(); }
-            } catch (IOException e) { if (running) System.err.println("[MineSynapse MCP] Accept failed: " + e.getClass().getSimpleName()); }
-        }, "MineSynapse-MCP-listener");
+            } catch (IOException e) { if (running) System.err.println("[Mine MCP] Accept failed: " + e.getClass().getSimpleName()); }
+        }, "Mine-MCP-listener");
         acceptor.setDaemon(true); acceptor.start();
     }
     public int port() { return socket.getLocalPort(); }

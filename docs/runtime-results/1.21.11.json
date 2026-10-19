@@ -1,7 +1,7 @@
 {
   "minecraftVersion": "1.21.11",
-  "recordedAt": "2026-10-19T13:21:57.071403+00:00",
-  "jarSha256": "537ce252f81c9afa444d3c558dbcd16eca3bbd64e75c1940e338298830049e41",
+  "recordedAt": "2026-10-19T13:29:36.725089+00:00",
+  "jarSha256": "9da0ad58f0170e4e226836839207c8bd8af1206c32df41b5dceaaccf2268409b",
   "environment": "Windows graphical client, isolated offline singleplayer instance, Fabric 0.19.5",
   "tests": [
     {

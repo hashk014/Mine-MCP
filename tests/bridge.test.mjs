@@ -6,7 +6,7 @@ import path from 'node:path';
 import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { validateConnection, parseArgs, forward } from '../bridge/minesynapse-mcp.mjs';
+import { validateConnection, parseArgs, forward } from '../bridge/mine-mcp.mjs';
 
 const token = 'a'.repeat(43);
 test('connection validation rejects remote URLs and credential forwarding', () => {
@@ -22,7 +22,7 @@ test('launcher paths are explicit and argument errors are clear', () => {
   assert.throws(() => parseArgs(['--game-dir']));
 });
 test('forward, notification and concurrent stdio preserve JSON-RPC IDs and do not log secrets', async () => {
-  const dir = await mkdtemp(path.join(tmpdir(), 'minesynapse-bridge-'));
+  const dir = await mkdtemp(path.join(tmpdir(), 'minemcp-bridge-'));
   const file = path.join(dir, 'connection.json');
   const received = [];
   const server = createServer(async (req, res) => {
@@ -38,7 +38,7 @@ test('forward, notification and concurrent stdio preserve JSON-RPC IDs and do no
     await writeFile(file, JSON.stringify({ url: `http://127.0.0.1:${server.address().port}/mcp`, token }));
     assert.equal((await forward({ jsonrpc: '2.0', id: 'abc', method: 'ping' }, file)).id, 'abc');
     assert.equal(await forward({ jsonrpc: '2.0', method: 'notifications/initialized' }, file), null);
-    const child = spawn(process.execPath, ['bridge/minesynapse-mcp.mjs', '--connection-file', file], { cwd: path.resolve('.') });
+    const child = spawn(process.execPath, ['bridge/mine-mcp.mjs', '--connection-file', file], { cwd: path.resolve('.') });
     let stdout = '', stderr = '';
     child.stdout.on('data', data => { stdout += data; }); child.stderr.on('data', data => { stderr += data; });
     child.stdin.end([1, 2, 3].map(id => JSON.stringify({ jsonrpc: '2.0', id, method: 'ping' })).join('\n') + '\n');

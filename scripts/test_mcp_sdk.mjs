@@ -10,13 +10,13 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const game = path.resolve(process.argv[2] || 'run/1.21.11');
-const connection = JSON.parse(await readFile(path.join(game, 'config/minesynapse-mcp-connection.json'), 'utf8'));
+const connection = JSON.parse(await readFile(path.join(game, 'config/mine-mcp-connection.json'), 'utf8'));
 const reports = [];
 for (const [name, transport] of [
-  ['stdio bridge', new StdioClientTransport({ command: process.execPath, args: ['bridge/minesynapse-mcp.mjs', '--game-dir', game] })],
+  ['stdio bridge', new StdioClientTransport({ command: process.execPath, args: ['bridge/mine-mcp.mjs', '--game-dir', game] })],
   ['direct Streamable HTTP', new StreamableHTTPClientTransport(new URL(connection.url), { requestInit: { headers: { Authorization: `Bearer ${connection.token}` } } })],
 ]) {
-  const client = new Client({ name: 'minesynapse-validation', version: '1.0.0' });
+  const client = new Client({ name: 'minemcp-validation', version: '1.0.0' });
   try {
     await client.connect(transport);
     assert.equal((await client.listTools()).tools.length, 45);

@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import com.google.gson.*;
 import net.fabricmc.api.ClientModInitializer;
@@ -6,8 +6,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import java.nio.file.*;
 import java.util.concurrent.*;
 
-public final class MineSynapse implements ClientModInitializer {
-    private static volatile MineSynapse instance;
+public final class MineMCP implements ClientModInitializer {
+    private static volatile MineMCP instance;
     private final GameThread game = new GameThread();
     private final Events events = new Events(512);
     private ClientAdapter adapter;
@@ -25,27 +25,27 @@ public final class MineSynapse implements ClientModInitializer {
             adapter = new ClientAdapter(symbols, events);
             server = new LocalServer(config, new Protocol(this::execute));
             server.start(); instance = this;
-            connectionFile = config.directory.resolve("minesynapse-mcp-connection.json");
+            connectionFile = config.directory.resolve("mine-mcp-connection.json");
             Config.privateWrite(connectionFile, Json.obj("url", "http://127.0.0.1:" + server.port() + "/mcp", "token", config.token,
                     "minecraftVersion", version, "modVersion", Protocol.VERSION, "allowActions", config.allowActions).toString());
-            Runtime.getRuntime().addShutdownHook(new Thread(this::shutdown, "MineSynapse-MCP-shutdown"));
-            System.out.println("[MineSynapse MCP] Listening on 127.0.0.1:" + server.port() + "; connection details in config/minesynapse-mcp-connection.json. F8 pauses actions.");
+            Runtime.getRuntime().addShutdownHook(new Thread(this::shutdown, "Mine-MCP-shutdown"));
+            System.out.println("[Mine MCP] Listening on 127.0.0.1:" + server.port() + "; connection details in config/mine-mcp-connection.json. F8 pauses actions.");
         } catch (Exception | LinkageError e) {
             // A bridge failure must not crash an otherwise playable client, and must not expose a partial endpoint.
             if (server != null) server.close();
-            System.err.println("[MineSynapse MCP] Disabled: " + e.getClass().getSimpleName() + ": " + e.getMessage());
+            System.err.println("[Mine MCP] Disabled: " + e.getClass().getSimpleName() + ": " + e.getMessage());
         }
     }
     public static void tick() {
-        MineSynapse current = instance; if (current == null) return;
+        MineMCP current = instance; if (current == null) return;
         try { current.adapter.tick(); current.game.tick(); current.ticks++; }
         catch (RuntimeException e) {
             current.adapter.release();
-            if (current.ticks++ % 200 == 0) System.err.println("[MineSynapse MCP] Tick error: " + e.getClass().getSimpleName() + ": " + e.getMessage());
+            if (current.ticks++ % 200 == 0) System.err.println("[Mine MCP] Tick error: " + e.getClass().getSimpleName() + ": " + e.getMessage());
         }
     }
     public static void key(int key, int action) {
-        MineSynapse current = instance;
+        MineMCP current = instance;
         if (current == null || action != 1) return;
         int f8 = 297;
         try { f8 = ((Number) current.adapter.s.field(current.adapter.s.type("com.mojang.blaze3d.platform.InputConstants"), "KEY_F8")).intValue(); }
@@ -53,14 +53,14 @@ public final class MineSynapse implements ClientModInitializer {
         if (key == f8) current.adapter.togglePause();
     }
     public static void keyEvent(Object event, int action) {
-        MineSynapse current = instance; if (current == null) return;
+        MineMCP current = instance; if (current == null) return;
         Object key = current.adapter.s.optional(event, "key");
         if (key instanceof Number) key(((Number) key).intValue(), action);
     }
     private JsonObject execute(String tool, JsonObject a) throws Exception {
         if (tool.equals("get_events")) return events.read((long) Json.number(a, "after", 0, 0, 9007199254740991d), Json.integer(a, "limit", 100, 1, 256));
         Tools.Tool spec = new Tools().require(tool, a);
-        if (spec.action && !tool.equals("release_controls") && !tool.equals("pause_control") && !config.allowActions) throw new IllegalStateException("Actions are disabled in config/minesynapse-mcp.json");
+        if (spec.action && !tool.equals("release_controls") && !tool.equals("pause_control") && !config.allowActions) throw new IllegalStateException("Actions are disabled in config/mine-mcp.json");
         if (tool.equals("take_screenshot")) {
             CompletableFuture<JsonObject> image = game.call(() -> adapter.screenshot(Json.integer(a, "maxWidth", 640, 160, 1280)), 5000);
             return image.get(10, TimeUnit.SECONDS);

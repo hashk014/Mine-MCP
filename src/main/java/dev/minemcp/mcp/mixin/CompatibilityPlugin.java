@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp.mixin;
+package dev.minemcp.mcp.mixin;
 
 import com.google.gson.*;
 import net.fabricmc.loader.api.FabricLoader;

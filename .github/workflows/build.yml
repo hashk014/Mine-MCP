@@ -29,5 +29,5 @@ jobs:
       - run: npm test
       - uses: actions/upload-artifact@v4
         with:
-          name: minesynapse-mcp-${{ matrix.os }}-jdk${{ matrix.java }}
+          name: mine-mcp-${{ matrix.os }}-jdk${{ matrix.java }}
           path: build/libs/*.jar

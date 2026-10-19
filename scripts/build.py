@@ -11,7 +11,7 @@ import urllib.request
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 DEPENDENCIES = {
     'fabric-loader': ('https://maven.fabricmc.net/net/fabricmc/fabric-loader/0.19.5/fabric-loader-0.19.5.jar', None),
     'mixin': ('https://maven.fabricmc.net/net/fabricmc/sponge-mixin/0.17.0+mixin.0.8.7/sponge-mixin-0.17.0+mixin.0.8.7.jar', None),
@@ -62,6 +62,11 @@ def main():
     home = java_home()
     dependencies = deps()
     classes = ROOT / 'build/classes'
+    if classes.exists():
+        resolved = classes.resolve()
+        if resolved.parent != (ROOT / 'build').resolve() or resolved.name != 'classes':
+            raise SystemExit('Refusing to clean a class directory outside the build output')
+        shutil.rmtree(classes)
     classes.mkdir(parents=True, exist_ok=True)
     cp = os.pathsep.join(str(x) for x in dependencies)
     sources = sorted((ROOT / 'src/main/java').rglob('*.java'))
@@ -71,8 +76,8 @@ def main():
                     '-cp', cp, '-d', str(classes), *map(str, sources)], check=True)
     if args.test:
         subprocess.run([str(home / 'bin/java'), '-cp', str(classes) + os.pathsep + cp,
-                        'dev.minesynapse.mcp.CoreTest'], check=True)
-    jar = ROOT / f'build/libs/minesynapse-mcp-{VERSION}.jar'
+                        'dev.minemcp.mcp.CoreTest'], check=True)
+    jar = ROOT / f'build/libs/mine-mcp-{VERSION}.jar'
     jar.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(jar, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as output:
         for folder in [classes, ROOT / 'src/main/resources']:
@@ -80,10 +85,16 @@ def main():
                 if path.is_file() and not any(p in path.name for p in ('CoreTest', 'Fake')):
                     item = zipfile.ZipInfo(path.relative_to(folder).as_posix(), (2026, 1, 1, 0, 0, 0))
                     item.compress_type = zipfile.ZIP_DEFLATED
+                    item.create_system = 3
+                    item.external_attr = 0o100644 << 16
                     output.writestr(item, path.read_bytes())
         for name in ('LICENSE', 'NOTICE'):
             if (ROOT / name).exists():
-                output.writestr(name, (ROOT / name).read_bytes())
+                item = zipfile.ZipInfo(name, (2026, 1, 1, 0, 0, 0))
+                item.compress_type = zipfile.ZIP_DEFLATED
+                item.create_system = 3
+                item.external_attr = 0o100644 << 16
+                output.writestr(item, (ROOT / name).read_bytes())
     print('Built', jar, hashlib.sha256(jar.read_bytes()).hexdigest())
 
 

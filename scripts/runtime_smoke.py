@@ -17,9 +17,9 @@ def main():
     parser.add_argument('--actions', action='store_true')
     args = parser.parse_args()
     directory = Path(args.game_dir)
-    connection = json.loads((directory / 'config/minesynapse-mcp-connection.json').read_text())
+    connection = json.loads((directory / 'config/mine-mcp-connection.json').read_text())
     version = connection['minecraftVersion']
-    jar = directory / 'mods/minesynapse-mcp-0.1.0.jar'
+    jar = directory / 'mods/mine-mcp-0.1.1.jar'
     report = dict(minecraftVersion=version, recordedAt=datetime.now(timezone.utc).isoformat(),
                   jarSha256=hashlib.sha256(jar.read_bytes()).hexdigest(),
                   environment='Windows graphical client, isolated offline singleplayer instance, Fabric 0.19.5', tests=[])
@@ -90,9 +90,9 @@ def main():
         check('normal attack input', 'attack')
         check('normal use input', 'use_item')
         check('stop item use', 'stop_using_item')
-        check('local singleplayer chat send', 'send_chat', {'message': 'MineSynapse MCP self-test'})
+        check('local singleplayer chat send', 'send_chat', {'message': 'Mine MCP self-test'})
         time.sleep(0.3)
-        check('chat send observed', 'get_chat', predicate=lambda d: any('MineSynapse MCP self-test' in m['text'] for m in d['messages']))
+        check('chat send observed', 'get_chat', predicate=lambda d: any('Mine MCP self-test' in m['text'] for m in d['messages']))
         check('restore hotbar', 'select_hotbar', {'slot': int(before['selectedSlot'])})
         check('restore view', 'look', {'yaw': before['yaw'], 'pitch': before['pitch']})
         check('release all inputs', 'release_controls')

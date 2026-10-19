@@ -100,7 +100,7 @@ def prepare(version, java_override=None):
     with concurrent.futures.ThreadPoolExecutor(max_workers=12) as pool:
         list(pool.map(lambda task: install(*task), {str(t[1]): t for t in asset_tasks}.values()))
     mods = game / 'mods'; mods.mkdir(exist_ok=True)
-    shutil.copy2(ROOT / 'build/libs/minesynapse-mcp-0.1.0.jar', mods / 'minesynapse-mcp-0.1.0.jar')
+    shutil.copy2(ROOT / 'build/libs/mine-mcp-0.1.1.jar', mods / 'mine-mcp-0.1.1.jar')
     # Tiny render distance for an isolated developer world; no existing options/saves are copied.
     (game / 'options.txt').write_text('renderDistance:4\nsimulationDistance:4\nmaxFps:30\nsoundCategory_master:0.0\nfullscreen:false\npauseOnLostFocus:false\nskipMultiplayerWarning:true\nonboardAccessibility:false\n')
     java = java_override or str(java_home() / 'bin/java.exe')

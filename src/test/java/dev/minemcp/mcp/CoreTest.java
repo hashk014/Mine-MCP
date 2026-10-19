@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import com.google.gson.*;
 import java.net.*;
@@ -57,7 +57,7 @@ public final class CoreTest {
         long deadline = System.nanoTime() + 900_000_000L;
         while (!success.isDone() && System.nanoTime() < deadline) { game.tick(); Thread.sleep(2); }
         check(success.get() == 42, "game queue executes on tick"); worker.shutdownNow(); game.close();
-        Path temp = Files.createTempDirectory("minesynapse-test-"); Config config = Config.load(temp);
+        Path temp = Files.createTempDirectory("minemcp-test-"); Config config = Config.load(temp);
         check(config.token.length() >= 32 && Config.load(temp).token.equals(config.token), "secure persistent token");
         try (LocalServer server = new LocalServer(config, protocol)) {
             server.start(); String url = "http://127.0.0.1:" + server.port() + "/mcp";
@@ -71,7 +71,7 @@ public final class CoreTest {
             check(http(url, "POST", config.token, null, Json.obj("jsonrpc", "2.0", "method", "notifications/initialized").toString()).status == 202, "notification no response");
             check(http(url + "/evil", "POST", config.token, null, "{}").status == 404, "exact endpoint");
         }
-        Files.deleteIfExists(temp.resolve("minesynapse-mcp.json")); Files.deleteIfExists(temp);
+        Files.deleteIfExists(temp.resolve("mine-mcp.json")); Files.deleteIfExists(temp);
         System.out.println("CoreTest: " + assertions + " assertions passed");
     }
     public static final class FakeOverload {

@@ -6,5 +6,5 @@ __pycache__/
 *.log
 .idea/
 .vscode/
-config/minesynapse-mcp.json
+config/mine-mcp.json
 *-connection.json

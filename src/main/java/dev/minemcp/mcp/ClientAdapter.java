@@ -1,4 +1,4 @@
-package dev.minesynapse.mcp;
+package dev.minemcp.mcp;
 
 import com.google.gson.*;
 import java.awt.Graphics2D;

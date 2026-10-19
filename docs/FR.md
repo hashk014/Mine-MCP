@@ -1,6 +1,6 @@
-# MineSynapse MCP — guide français
+# Mine MCP — guide français
 
-**MineSynapse MCP** relie une IA à ton client Minecraft Java via le protocole MCP. Le même JAR Fabric contient les adaptations de **44 versions stables, de 1.14.4 à 26.3**.
+**Mine MCP** relie une IA à ton client Minecraft Java via le protocole MCP. Le même JAR Fabric contient les adaptations de **44 versions stables, de 1.14.4 à 26.3**.
 
 C'est une alpha : les versions ciblées, les symboles vérifiés, les démarrages réels et les essais de gameplay sont distingués dans [la matrice](COMPATIBILITY.md). Toutes les fonctions n'ont pas été jouées sur toutes les versions. Forge/NeoForge, Bedrock, les snapshots et les versions antérieures à 1.14.4 ne sont pas pris en charge.
 
@@ -11,19 +11,19 @@ Elle peut avancer, regarder, sauter, courir, s'accroupir, attaquer, utiliser/pos
 ## Installation
 
 1. Installe Fabric Loader **0.19.5+** sur la version choisie et le Java requis par Minecraft.
-2. Mets le [JAR de la release](https://github.com/hashk014/MineSynapse-MCP/releases) dans le dossier `mods` de cette instance.
-3. Lance Minecraft. Le mod écrit sa connexion privée dans `config/minesynapse-mcp-connection.json`.
-4. Installe Node.js 18+ et utilise le fichier `bridge/minesynapse-mcp.mjs` comme serveur MCP stdio dans ton logiciel d'IA.
+2. Mets le [JAR de la release](https://github.com/hashk014/Mine-MCP/releases) dans le dossier `mods` de cette instance.
+3. Lance Minecraft. Le mod écrit sa connexion privée dans `config/mine-mcp-connection.json`.
+4. Installe Node.js 18+ et utilise le fichier `bridge/mine-mcp.mjs` comme serveur MCP stdio dans ton logiciel d'IA.
 
 Exemple de configuration :
 
 ```json
 {
   "mcpServers": {
-    "minesynapse-mcp": {
+    "mine-mcp": {
       "command": "node",
       "args": [
-        "C:\\Tools\\MineSynapse-MCP\\bridge\\minesynapse-mcp.mjs",
+        "C:\\Tools\\Mine-MCP\\bridge\\mine-mcp.mjs",
         "--game-dir",
         "C:\\CHEMIN\\VERS\\TON_INSTANCE_MINECRAFT"
       ]

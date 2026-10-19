@@ -2,10 +2,10 @@
 
 ## Recommended: stdio bridge
 
-The bridge is a zero-dependency Node.js program. Copy the single `bridge/minesynapse-mcp.mjs` file anywhere convenient, or keep the repository checkout.
+The bridge is a zero-dependency Node.js program. Copy the single `bridge/mine-mcp.mjs` file anywhere convenient, or keep the repository checkout.
 
 ```sh
-node /path/to/minesynapse-mcp.mjs --game-dir /path/to/instance
+node /path/to/mine-mcp.mjs --game-dir /path/to/instance
 ```
 
 It reads newline-delimited JSON-RPC on stdin and writes only JSON-RPC on stdout. Configure that command in your MCP client; running it in a terminal alone normally waits for input. No npm install is necessary. The game must already be running with the mod installed.
@@ -15,10 +15,10 @@ Windows example (JSON escapes backslashes):
 ```json
 {
   "mcpServers": {
-    "minesynapse-mcp": {
+    "mine-mcp": {
       "command": "node",
       "args": [
-        "C:\\Tools\\MineSynapse-MCP\\bridge\\minesynapse-mcp.mjs",
+        "C:\\Tools\\Mine-MCP\\bridge\\mine-mcp.mjs",
         "--game-dir",
         "C:\\Users\\YOUR_NAME\\AppData\\Roaming\\.minecraft"
       ]
@@ -27,7 +27,7 @@ Windows example (JSON escapes backslashes):
 }
 ```
 
-For Prism, Modrinth App, CurseForge or other launchers, use the instance's actual game directory (the directory containing `mods`, `config` and `saves`). `--connection-file /path/to/config/minesynapse-mcp-connection.json` can select a connection file directly. `MINESYNAPSE_GAME_DIR` is an alternative environment variable.
+For Prism, Modrinth App, CurseForge or other launchers, use the instance's actual game directory (the directory containing `mods`, `config` and `saves`). `--connection-file /path/to/config/mine-mcp-connection.json` can select a connection file directly. `MINE_MCP_GAME_DIR` is an alternative environment variable.
 
 Default directories when no argument is supplied:
 
@@ -39,7 +39,7 @@ Default directories when no argument is supplied:
 
 ## Direct HTTP
 
-Read the private `config/minesynapse-mcp-connection.json` from the running instance. It contains `url` and `token`. Configure a stateless Streamable HTTP MCP connection to that URL with `Authorization: Bearer <token>`. Do not copy credentials into a public issue, repository or shared configuration.
+Read the private `config/mine-mcp-connection.json` from the running instance. It contains `url` and `token`. Configure a stateless Streamable HTTP MCP connection to that URL with `Authorization: Bearer <token>`. Do not copy credentials into a public issue, repository or shared configuration.
 
 The endpoint supports JSON responses to POST and returns HTTP 202 for accepted notifications. GET/DELETE return 405; there is no standalone SSE stream or session ID. HTTP clients must send `Content-Length` (ordinary JSON request APIs do this). Browser origins, remote bind addresses, HTTP redirects and chunked request bodies are unsupported.
 
@@ -49,7 +49,7 @@ Resources: `minecraft://status`, `minecraft://snapshot`, `minecraft://inventory`
 
 ## Control settings
 
-Close the game before changing `config/minesynapse-mcp.json`:
+Close the game before changing `config/mine-mcp.json`:
 
 ```json
 {
@@ -69,7 +69,7 @@ Close the game before changing `config/minesynapse-mcp.json`:
 
 | Symptom | Check |
 | --- | --- |
-| Connection file missing | Correct instance? Fabric client? `[MineSynapse MCP]` message in the game log? |
+| Connection file missing | Correct instance? Fabric client? `[Mine MCP]` message in the game log? |
 | Connection refused | Game stopped/restarted? Correct instance file? The bridge re-reads it every request. |
 | HTTP 401 | Use the current token from this instance. |
 | HTTP 403 | Host must be loopback with the actual port. Browser `Origin` is rejected. |
